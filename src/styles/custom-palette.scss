@@ -60,15 +60,15 @@ $md-teal: (
     800 : #007f7f,
     900 : #055c56,
     contrast: (
-        50 : #121212,
-        100 : #121212,
-        200 : #121212,
-        300 : #121212,
-        400 : #121212,
-        500 : #f7f7f7,
-        600 : #f7f7f7,
-        700 : #f7f7f7,
-        800 : #f7f7f7,
-        900 : #f7f7f7
+        50 : map.get($md-grey, 900),
+        100 : map.get($md-grey, 900),
+        200 : map.get($md-grey, 900),
+        300 : map.get($md-grey, 900),
+        400 : map.get($md-grey, 900),
+        500 : map.get($md-grey, 50),
+        600 : map.get($md-grey, 50),
+        700 : map.get($md-grey, 50),
+        800 : map.get($md-grey, 50),
+        900 : map.get($md-grey, 50)
     )
 );
