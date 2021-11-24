@@ -1,27 +1,7 @@
-$md-grey: (
-    50 : #f7f7f7,
-    100 : #eeeeee,
-    200 : #e2e2e2,
-    300 : #d0d0d0,
-    400 : #ababab,
-    500 : #8a8a8a,
-    600 : #636363,
-    700 : #505050,
-    800 : #323232,
-    900 : #121212,
-    contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #000000,
-        500 : #ffffff,
-        600 : #ffffff,
-        700 : #ffffff,
-        800 : #ffffff,
-        900 : #ffffff
-    )
-);
+$light-primary-text: #000000;
+$light-secondary-text: #ffffff;
+$dark-primary-text: #f7f7f7;
+$dark-secondary-text: #121212;
 
 $md-red: (
     50 : #f8e6e8,
@@ -35,16 +15,16 @@ $md-red: (
     800 : #8e0b0c,
     900 : #7f0000,
     contrast: (
-        50 : #000000,
-        100 : #000000,
-        200 : #000000,
-        300 : #000000,
-        400 : #000000,
-        500 : #ffffff,
-        600 : #ffffff,
-        700 : #ffffff,
-        800 : #ffffff,
-        900 : #ffffff
+        50 : $light-primary-text,
+        100 : $light-primary-text,
+        200 : $light-primary-text,
+        300 : $light-primary-text,
+        400 : $light-primary-text,
+        500 : $light-secondary-text,
+        600 : $light-secondary-text,
+        700 : $light-secondary-text,
+        800 : $light-secondary-text,
+        900 : $light-secondary-text
     )
 );
 
@@ -60,15 +40,15 @@ $md-teal: (
     800 : #007f7f,
     900 : #055c56,
     contrast: (
-        50 : map.get($md-grey, 900),
-        100 : map.get($md-grey, 900),
-        200 : map.get($md-grey, 900),
-        300 : map.get($md-grey, 900),
-        400 : map.get($md-grey, 900),
-        500 : map.get($md-grey, 50),
-        600 : map.get($md-grey, 50),
-        700 : map.get($md-grey, 50),
-        800 : map.get($md-grey, 50),
-        900 : map.get($md-grey, 50)
+        50 : $dark-secondary-text,
+        100 : $dark-secondary-text,
+        200 : $dark-secondary-text,
+        300 : $dark-secondary-text,
+        400 : $dark-secondary-text,
+        500 : $dark-primary-text,
+        600 : $dark-primary-text,
+        700 : $dark-primary-text,
+        800 : $dark-primary-text,
+        900 : $dark-primary-text
     )
 );
