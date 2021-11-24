@@ -1,0 +1,29 @@
+@import './custom-palette.scss';
+@use '@angular/material' as mat;
+@include mat.core();
+
+$light-primary: mat.get-color-from-palette($md-red, 900);
+$light-accent: black;
+$light-theme: mat.define-light-theme((
+  color: (
+    primary: $light-primary,
+    accent: $light-accent
+  )
+));
+
+$dark-primary: $dark-secondary-text;
+$dark-secondary: mat.get-color-from-palette($md-teal, 200);
+$dark-theme: mat-define-dark-theme((
+  color: (
+    primary: $dark-primary,
+    accent: $dark-secondary
+  )
+));
+
+@include mat.core-theme($light-theme);
+@include mat.button-theme($light-theme);
+
+.dark-theme {
+  @include mat.core-theme($dark-theme);
+  @include mat.button-theme($dark-theme);
+}

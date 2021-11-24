@@ -1,0 +1,54 @@
+$light-primary-text: #000000;
+$light-secondary-text: #ffffff;
+$dark-primary-text: #f7f7f7;
+$dark-secondary-text: #121212;
+
+$md-red: (
+    50 : #f8e6e8,
+    100 : #edc1c4,
+    200 : #d08885,
+    300 : #ba5c58,
+    400 : #bb3a33,
+    500 : #b82617,
+    600 : #ab1c17,
+    700 : #9b1213,
+    800 : #8e0b0c,
+    900 : #7f0000,
+    contrast: (
+        50 : $light-primary-text,
+        100 : $light-primary-text,
+        200 : $light-primary-text,
+        300 : $light-primary-text,
+        400 : $light-primary-text,
+        500 : $light-secondary-text,
+        600 : $light-secondary-text,
+        700 : $light-secondary-text,
+        800 : $light-secondary-text,
+        900 : $light-secondary-text
+    )
+);
+
+$md-teal: (
+    50 : #dff7f6,
+    100 : #b1eae8,
+    200 : #7fdcdb,
+    300 : #4dcdce,
+    400 : #26c3c6,
+    500 : #00b8c0,
+    600 : #00a8ae,
+    700 : #009396,
+    800 : #007f7f,
+    900 : #055c56,
+    contrast: (
+        50 : $dark-secondary-text,
+        100 : $dark-secondary-text,
+        200 : $dark-secondary-text,
+        300 : $dark-secondary-text,
+        400 : $dark-secondary-text,
+        500 : $dark-primary-text,
+        600 : $dark-primary-text,
+        700 : $dark-primary-text,
+        800 : $dark-primary-text,
+        900 : $dark-primary-text
+    )
+);
