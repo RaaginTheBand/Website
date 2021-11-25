@@ -1,4 +1,4 @@
-import { isDevMode } from '@angular/core';
+const isDevMode = require('isDevMode');
 const fs = require('fs');
 const writeFile = fs.writeFile;
 
