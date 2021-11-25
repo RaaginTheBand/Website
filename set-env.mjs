@@ -1,13 +1,12 @@
-const isDevMode = require('isDevMode');
-const fs = require('fs');
-const writeFile = fs.writeFile;
+import * as dotenv from 'dotenv';
+import { writeFile } from 'fs';
 
-require('dotenv').config();
+dotenv.config();
 
-const targetPath = (isDevMode) ? './src/environments/environment.ts' : './src/environments/environment.prod.ts';
+const targetPath = './src/environments/environment.prod.ts';
 
 const envConfigFile = `export const environment = {
-  production: ${!isDevMode},
+  production: true,
   firebase: {
     apiKey: '${process.env['FIREBASE_API_KEY']}',
     authDomain: '${process.env['FIREBASE_AUTH_DOMAIN']}',
@@ -20,7 +19,7 @@ const envConfigFile = `export const environment = {
 };
 `;
 
-writeFile(targetPath, envConfigFile, 'utf8', (err: any) => {
+writeFile(targetPath, envConfigFile, 'utf8', (err) => {
   if (err) {
     return console.log(err);
   }
