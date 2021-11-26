@@ -30,6 +30,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.4",
     "@fortawesome/free-solid-svg-icons": "^5.15.4",
     "dotenv": "^10.0.0",
+    "epic-spinners": "^1.1.0",
     "firebase": "^9.4.0",
     "firebase-tools": "^9.23.0",
     "rxfire": "^6.0.0",
