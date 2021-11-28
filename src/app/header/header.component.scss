@@ -1,0 +1,14 @@
+mat-toolbar {
+  height: 102px;
+
+  #header-content {
+    height: inherit;
+    overflow: hidden;
+    width: inherit;
+
+    img {
+      height: 175px;
+      margin: -28px -8px;
+    }
+  }
+}
