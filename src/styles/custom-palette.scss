@@ -54,27 +54,27 @@ $md-teal: (
 );
 
 $md-grey: (
-  50: #e3e3e3,
-  100 : #b8b8b8,
-  200 : #898989,
-  300 : #595959,
-  400 : #363636,
-  500 : $dark-secondary-text,
-  600 : #101010,
-  700 : #0d0d0d,
-  800 : #0a0a0a,
-  900 : $light-primary-text,
+  50: $dark-primary-text,
+  100: #b8b8b8,
+  200: #898989,
+  300: #595959,
+  400: #363636,
+  500: $dark-secondary-text,
+  600: #101010,
+  700: #0d0d0d,
+  800: #0a0a0a,
+  900: $light-primary-text,
   contrast: (
-    50 : #000000,
-    100 : #000000,
-    200 : #000000,
-    300 : #ffffff,
-    400 : #ffffff,
-    500 : $dark-primary-text,
-    600 : #ffffff,
-    700 : #ffffff,
-    800 : #ffffff,
-    900 : $light-secondary-text
+    50: $dark-secondary-text,
+    100: $dark-secondary-text,
+    200: $dark-secondary-text,
+    300: $dark-primary-text,
+    400: $dark-primary-text,
+    500: $dark-primary-text,
+    600: $light-secondary-text,
+    700: $light-secondary-text,
+    800: $light-secondary-text,
+    900: $light-secondary-text
   )
 );
 

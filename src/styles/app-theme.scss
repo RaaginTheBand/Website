@@ -8,15 +8,18 @@ $light-theme: mat.define-light-theme((
   color: (
     primary: $light-primary,
     accent: $light-accent,
+    warn: $light-accent
   )
 ));
 
 $dark-primary: mat.define-palette($md-grey, 500);
-$dark-accent: mat.define-palette($md-teal, 500);
+$dark-accent: mat.define-palette($md-grey, 50);
+$dark-tabs: mat.define-palette($md-teal, 500);
 $dark-theme: mat.define-dark-theme((
   color: (
     primary: $dark-primary,
     accent: $dark-accent,
+    warn: $dark-tabs
   )
 ));
 
