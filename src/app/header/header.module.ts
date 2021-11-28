@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { HeaderComponent } from './header.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -9,7 +11,9 @@ import { HeaderComponent } from './header.component';
     HeaderComponent
   ],
   imports: [
-    CommonModule
+    MatTabsModule,
+    MatToolbarModule,
+    SharedModule
   ]
 })
 export class HeaderModule { }
