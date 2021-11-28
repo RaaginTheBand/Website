@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
+import { HeaderModule } from './header/header.module';
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -21,7 +22,8 @@ import { environment } from '../environments/environment';
     FontAwesomeModule,
     AppRoutingModule,
     CoreModule,
-    SharedModule
+    SharedModule,
+    HeaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

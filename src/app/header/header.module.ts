@@ -14,6 +14,9 @@ import { SharedModule } from '../shared/shared.module';
     MatTabsModule,
     MatToolbarModule,
     SharedModule
+  ],
+  exports: [
+    HeaderComponent
   ]
 })
 export class HeaderModule { }
