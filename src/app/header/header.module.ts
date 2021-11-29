@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HeaderComponent } from './header.component';
 import { SharedModule } from '../shared/shared.module';
 
@@ -11,6 +12,7 @@ import { SharedModule } from '../shared/shared.module';
     HeaderComponent
   ],
   imports: [
+    FontAwesomeModule,
     MatTabsModule,
     MatToolbarModule,
     SharedModule
