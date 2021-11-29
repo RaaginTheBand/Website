@@ -2,13 +2,21 @@ mat-toolbar {
   height: 102px;
 
   #header-content {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
     height: inherit;
+    justify-content: start;
     overflow: hidden;
     width: inherit;
 
     img {
       height: 175px;
       margin: -28px -8px;
+    }
+
+    .header-icons {
+      // position: absolute;
     }
   }
 }
