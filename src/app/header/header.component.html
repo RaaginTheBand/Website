@@ -2,7 +2,7 @@
   <mat-toolbar color="primary">
     <div class="outer-margins" id="header-content">
       <div>
-        <img src="assets/images/Logo_black.png" alt="Raagin logo">
+        <img [src]="'assets/images/Logo_' + (isDarkOn ? 'white' : 'black') + '.png'" alt="Raagin logo">
       </div>
       <div>
         <a href="https://www.facebook.com/raagintheband/" target="_blank" rel="noopener noreferrer" mat-button color="accent">
