@@ -14,6 +14,13 @@
           <fa-icon [icon]="instagramIcon" size="3x"></fa-icon>
         </a>
       </div>
+      <div>
+        <button mat-icon-button color="accent" matTooltip="Switch to {{ isDarkOn ? 'light' : 'dark' }} mode" (click)="toggleTheme()" aria-label="Light/dark toggle button">
+          <mat-icon>
+            {{ isDarkOn ? 'light_mode' : 'dark_mode' }}
+          </mat-icon>
+        </button>
+      </div>
     </div>
   </mat-toolbar>
 </header>
