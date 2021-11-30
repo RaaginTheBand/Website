@@ -1,8 +1,8 @@
 @mixin tab-theme($bg-color, $color) {
   .mat-tab-label-active {
     background-color: $bg-color !important;
-    color: $color;
-    height: 100%;
+    color: $color !important;
+    font-weight: bold;
   }
 }
 
