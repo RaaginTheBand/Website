@@ -17,10 +17,15 @@ mat-toolbar {
     .flex-areas {
       height: inherit;
 
-      img {
+      #logo {
         height: 175px;
         margin: 0 -8px;
+        padding-right: 48px;
         padding-top: 16px;
+      }
+
+      #toggle-btn {
+        padding-left: 32px;
       }
 
       .mat-tab-group {
@@ -34,6 +39,7 @@ mat-toolbar {
 
             .mat-tab-label {
               height: 100%;
+              opacity: 1;
             }
           }
 

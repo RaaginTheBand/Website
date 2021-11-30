@@ -2,14 +2,14 @@
   <mat-toolbar color="primary">
     <div class="outer-margins" id="header-content">
       <div class="flex-areas" fxLayout="row" fxLayoutAlign="space-evenly center">
-        <img [src]="'assets/images/Logo_' + (isDarkOn ? 'white' : 'black') + '.png'" alt="Raagin logo">
+        <img [src]="'assets/images/Logo_' + (isDarkOn ? 'white' : 'black') + '.png'" alt="Raagin logo" id="logo">
         <a href="https://www.facebook.com/raagintheband/" target="_blank" rel="noopener noreferrer" mat-button color="accent">
           <fa-icon [icon]="facebookIcon" size="3x"></fa-icon>
         </a>
         <a href="https://www.instagram.com/raagintheband/" target="_blank" rel="noopener noreferrer" mat-button color="accent">
           <fa-icon [icon]="instagramIcon" size="3x"></fa-icon>
         </a>
-        <button mat-icon-button color="accent" matTooltip="Switch to {{ isDarkOn ? 'light' : 'dark' }} mode" (click)="toggleTheme()" aria-label="Light/dark toggle button">
+        <button mat-icon-button color="accent" matTooltip="Switch to {{ isDarkOn ? 'light' : 'dark' }} mode" (click)="toggleTheme()" aria-label="Light/dark toggle button" id="toggle-btn">
           <mat-icon>
             {{ isDarkOn ? 'light_mode' : 'dark_mode' }}
           </mat-icon>
