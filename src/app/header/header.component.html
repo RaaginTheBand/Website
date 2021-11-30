@@ -18,11 +18,7 @@
       <div fxFlex="1 1 auto"></div>
       <div class="flex-areas" fxLayout="row" fxLayoutAlign="space-evenly center">
         <mat-tab-group backgroundColor="primary" color="warn">
-          <mat-tab label="Home"></mat-tab>
-          <mat-tab label="About"></mat-tab>
-          <mat-tab label="Events"></mat-tab>
-          <mat-tab label="Media"></mat-tab>
-          <mat-tab label="Contact"></mat-tab>
+          <mat-tab [label]="label" *ngFor="let label of tabLabels"></mat-tab>
         </mat-tab-group>
       </div>
     </div>

@@ -13,6 +13,7 @@ export class HeaderComponent implements OnInit {
   facebookIcon = faFacebookSquare;
   instagramIcon = faInstagramSquare;
   isDarkOn = false;
+  tabLabels = ['Home', 'About', 'Events', 'Media', 'Contact'];
 
   constructor(private darkModeService: DarkModeService,
               faConfig: FaConfig) {
