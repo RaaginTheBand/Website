@@ -1,0 +1,18 @@
+#wrapper {
+  height: 100%;
+
+  #content-container {
+    height: inherit;
+    overflow: hidden;
+
+    #content-area {
+      background-image: url('../assets/images/Background.jpg');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      filter: blur(12px);
+      height: inherit;
+      transform: scale(1.1);
+    }
+  }
+}
