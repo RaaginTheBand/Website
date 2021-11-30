@@ -1,25 +1,29 @@
 <header>
   <mat-toolbar color="primary">
     <div class="outer-margins" id="header-content">
-      <div>
+      <div class="flex-areas" fxLayout="row" fxLayoutAlign="space-evenly center">
         <img [src]="'assets/images/Logo_' + (isDarkOn ? 'white' : 'black') + '.png'" alt="Raagin logo">
-      </div>
-      <div>
         <a href="https://www.facebook.com/raagintheband/" target="_blank" rel="noopener noreferrer" mat-button color="accent">
           <fa-icon [icon]="facebookIcon" size="3x"></fa-icon>
         </a>
-      </div>
-      <div>
         <a href="https://www.instagram.com/raagintheband/" target="_blank" rel="noopener noreferrer" mat-button color="accent">
           <fa-icon [icon]="instagramIcon" size="3x"></fa-icon>
         </a>
-      </div>
-      <div>
         <button mat-icon-button color="accent" matTooltip="Switch to {{ isDarkOn ? 'light' : 'dark' }} mode" (click)="toggleTheme()" aria-label="Light/dark toggle button">
           <mat-icon>
             {{ isDarkOn ? 'light_mode' : 'dark_mode' }}
           </mat-icon>
         </button>
+      </div>
+      <div fxFlex="1 1 auto"></div>
+      <div class="flex-areas" fxLayout="row" fxLayoutAlign="space-evenly center">
+        <mat-tab-group backgroundColor="primary" color="warn">
+          <mat-tab label="Home"></mat-tab>
+          <mat-tab label="About"></mat-tab>
+          <mat-tab label="Events"></mat-tab>
+          <mat-tab label="Media"></mat-tab>
+          <mat-tab label="Contact"></mat-tab>
+        </mat-tab-group>
       </div>
     </div>
   </mat-toolbar>
