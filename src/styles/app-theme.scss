@@ -1,9 +1,11 @@
 @use '@angular/material' as mat;
 @import './custom-palette.scss';
+@import '../app/header/header.component.scss';
 @include mat.core();
 
 $light-primary: mat.define-palette($md-red, 500);
 $light-accent: mat.define-palette($md-grey, 900);
+$light-tabs: mat.define-palette($md-grey, 900);
 $light-theme: mat.define-light-theme((
   color: (
     primary: $light-primary,
@@ -25,8 +27,10 @@ $dark-theme: mat.define-dark-theme((
 
 @include mat.all-component-themes($light-theme);
 @include light-dark($light-primary-text, $light-secondary-text);
+@include tab-theme(mat.get-color-from-palette($light-tabs, 'default'), mat.get-color-from-palette($light-tabs, 'default-contrast'));
 
 .dark-theme {
   @include mat.all-component-themes($dark-theme);
   @include light-dark($dark-primary-text, $dark-secondary-text);
+  @include tab-theme(mat.get-color-from-palette($dark-tabs, 'default'), mat.get-color-from-palette($dark-tabs, 'default-contrast'));
 }

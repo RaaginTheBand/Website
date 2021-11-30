@@ -1,18 +1,54 @@
+@mixin tab-theme($bg-color, $color) {
+  .mat-tab-label-active {
+    background-color: $bg-color !important;
+    color: $color;
+    height: 100%;
+  }
+}
+
 mat-toolbar {
   height: 102px !important;
 
   #header-content {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
     height: inherit;
-    justify-content: start;
     overflow: hidden;
     width: inherit;
 
-    img {
-      height: 175px;
-      margin: -28px -8px;
+    .flex-areas {
+      height: inherit;
+
+      #logo {
+        height: 175px;
+        margin: 0 -8px;
+        padding-right: 48px;
+        padding-top: 16px;
+      }
+
+      #toggle-btn {
+        margin-bottom: 8px;
+        padding: 0 48px;
+      }
+
+      .mat-tab-group {
+        height: inherit;
+
+        .mat-tab-header {
+          height: inherit;
+
+          .mat-tab-labels {
+            height: 100%;
+
+            .mat-tab-label {
+              height: 100%;
+              opacity: 1;
+            }
+          }
+
+          .mat-ink-bar {
+            visibility: hidden !important;
+          }
+        }
+      }
     }
   }
 }
