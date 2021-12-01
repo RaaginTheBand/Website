@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { HeaderModule } from './header/header.module';
+import { HomeModule } from './home/home.module';
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -21,7 +22,8 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     CoreModule,
     SharedModule,
-    HeaderModule
+    HeaderModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
