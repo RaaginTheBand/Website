@@ -3,10 +3,10 @@
     <div class="outer-margins" id="header-content">
       <div class="flex-areas" fxLayout="row" fxLayoutAlign="space-evenly center">
         <img [src]="'assets/images/Logo_' + (isDarkOn ? 'white' : 'black') + '.png'" alt="Raagin logo" id="logo">
-        <a href="https://www.facebook.com/raagintheband/" target="_blank" rel="noopener noreferrer" mat-button color="accent">
+        <a href="https://www.facebook.com/raagintheband/" target="_blank" rel="noopener noreferrer" mat-button color="accent" [disableRipple]="true" class="social-icons">
           <fa-icon [icon]="facebookIcon" size="3x"></fa-icon>
         </a>
-        <a href="https://www.instagram.com/raagintheband/" target="_blank" rel="noopener noreferrer" mat-button color="accent">
+        <a href="https://www.instagram.com/raagintheband/" target="_blank" rel="noopener noreferrer" mat-button color="accent" [disableRipple]="true" class="social-icons">
           <fa-icon [icon]="instagramIcon" size="3x"></fa-icon>
         </a>
         <button mat-icon-button color="accent" matTooltip="Switch to {{ isDarkOn ? 'light' : 'dark' }} mode" (click)="toggleTheme()" aria-label="Light/dark toggle button" id="toggle-btn">
@@ -21,6 +21,7 @@
           <mat-tab [label]="label" *ngFor="let label of tabLabels"></mat-tab>
         </mat-tab-group>
       </div>
+      <div fxFlex="1 1 auto"></div>
     </div>
   </mat-toolbar>
 </header>
