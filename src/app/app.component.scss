@@ -16,4 +16,11 @@
       transform: scale(1.1);
     }
   }
+  &.dark-theme {
+    #content-container {
+      #content-area {
+        filter: blur(12px) brightness(0.5);
+      }
+    }
+  }
 }
