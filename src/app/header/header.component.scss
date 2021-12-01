@@ -24,6 +24,17 @@ mat-toolbar {
         padding-top: 18px;
       }
 
+      .social-icons {
+        margin: 0 16px;
+        min-width: fit-content;
+        padding: 0;
+
+        .mat-button-ripple {
+          bottom: 9px;
+          top: 2px;
+        }
+      }
+
       #toggle-btn {
         margin: 0 36px 8px 36px;
       }
