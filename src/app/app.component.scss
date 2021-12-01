@@ -2,7 +2,7 @@
   height: 100%;
 
   #content-container {
-    height: inherit;
+    height: calc(100vh - 102px);
     overflow: hidden;
 
     #content-area {
@@ -12,6 +12,7 @@
       background-size: cover;
       filter: blur(12px);
       height: inherit;
+      padding-top: calc(calc(100vh - calc(100vh - 102px)) / 2);
       transform: scale(1.1);
     }
   }
