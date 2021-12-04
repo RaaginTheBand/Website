@@ -1,5 +1,9 @@
 @import './styles/app-theme.scss';
 
+:root {
+  --header-height: 102px;
+}
+
 html, body {
   height: 100%;
 }
@@ -11,4 +15,19 @@ body {
 
 .outer-margins {
   margin: 0 48px;
+}
+
+.overlay {
+  background-color: $light-secondary-text;
+  color: $light-primary-text;
+  margin-left: 10%;
+  opacity: 0.6;
+  position: absolute;
+  top: var(--header-height);
+  width: 80%;
+
+  .dark-theme & {
+    background-color: $dark-secondary-text;
+    color: $dark-primary-text;
+  }
 }
