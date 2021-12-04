@@ -1,3 +1,17 @@
 <div class="outer-margins overlay" id="wrapper">
-  <p>Home!</p>
+  <mat-grid-list cols="4" rowHeight="4:1">
+    <mat-grid-tile colspan="4" rowspan="1">
+      <h2>
+        {{ content?.title }}
+      </h2>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="6">
+      <img [src]="content?.imageUrl" alt="placeholder image">
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="6">
+      <span style="white-space: pre-line">
+        {{ content?.text }}
+      </span>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>

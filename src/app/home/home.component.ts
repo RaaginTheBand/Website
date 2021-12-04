@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     promoObs.pipe(concatMap(doc => doc === null ? EMPTY : defaultObs), takeUntil(this.unsubscribe)).subscribe(res => {
       if (res) {
         this.content = res;
-        console.log(this.content);
       }
     });
   }
