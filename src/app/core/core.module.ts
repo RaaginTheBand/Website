@@ -1,10 +1,12 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { DarkModeService } from './services/dark-mode.service';
+import { HomeService } from './services/home.service';
 
 
 @NgModule({
   providers: [
-    DarkModeService
+    DarkModeService,
+    HomeService
   ]
 })
 export class CoreModule {
