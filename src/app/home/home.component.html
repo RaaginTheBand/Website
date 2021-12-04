@@ -1,1 +1,15 @@
-<p>home works!</p>
+<div class="outer-margins overlay" id="wrapper">
+  <mat-grid-list cols="4" rowHeight="4:1">
+    <mat-grid-tile colspan="4" rowspan="1">
+      <h2>
+        {{ content?.title }}
+      </h2>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="6">
+      <img id="home-image" [src]="content?.imageUrl" alt="placeholder image">
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2" rowspan="6">
+      <div id="home-text" [innerHtml]="content?.text"></div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
