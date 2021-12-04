@@ -1,6 +1,6 @@
 @use '@angular/material' as mat;
 @import './custom-palette.scss';
-@import '../app/header/header.component.scss';
+@import '../app/header.component.scss';
 @include mat.core();
 
 $light-primary: mat.define-palette($md-red, 500);

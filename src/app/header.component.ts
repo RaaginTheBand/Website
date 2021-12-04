@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FaConfig } from '@fortawesome/angular-fontawesome';
 import { faFacebookSquare, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
-import { DarkModeService } from '../core/services/dark-mode.service';
+import { DarkModeService } from './core/services/dark-mode.service';
 
 @Component({
   selector: 'app-header',
