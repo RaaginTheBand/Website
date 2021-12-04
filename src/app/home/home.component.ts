@@ -11,7 +11,7 @@ import { Home } from '../core/models/home';
 })
 export class HomeComponent implements OnInit, OnDestroy {
 
-  content: Home | undefined;
+  content: Home = {} as Home;
   private unsubscribe: ReplaySubject<boolean> = new ReplaySubject(1);
 
   constructor(private store: AngularFirestore) { }
@@ -21,10 +21,20 @@ export class HomeComponent implements OnInit, OnDestroy {
     const defaultObs = this.store.collection('home').doc<Home>('default').valueChanges();
 
     promoObs.pipe(concatMap(doc => doc === null ? EMPTY : defaultObs), takeUntil(this.unsubscribe)).subscribe(res => {
-      if (res) {
+      if (res && this.isHomeType(res)) {
         this.content = res;
+        this.formatText();
       }
     });
+  }
+
+  formatText(): void {
+    if (this.content.text.includes('\\n')) {
+      this.content.text = this.content.text.replace(/\\n/g, '<br>');
+    }
+    // if (text && text.includes('\t')) {
+    //   //
+    // }
   }
 
   isHomeType(obj: any): obj is Home {
