@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { EMPTY, Subject } from 'rxjs';
+import { EMPTY, ReplaySubject } from 'rxjs';
 import { concatMap, takeUntil } from 'rxjs/operators';
 import { Home } from '../core/models/home';
 
@@ -12,6 +12,7 @@ import { Home } from '../core/models/home';
 export class HomeComponent implements OnInit, OnDestroy {
 
   content: Home | undefined;
+  private unsubscribe: ReplaySubject<boolean> = new ReplaySubject(1);
 
   constructor(private store: AngularFirestore) { }
 
@@ -19,7 +20,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     const promoObs = this.store.collection('home').doc<Home>('promo').valueChanges();
     const defaultObs = this.store.collection('home').doc<Home>('default').valueChanges();
 
-    promoObs.pipe(concatMap(doc => doc === null ? EMPTY : defaultObs)).subscribe(res => {
+    promoObs.pipe(concatMap(doc => doc === null ? EMPTY : defaultObs), takeUntil(this.unsubscribe)).subscribe(res => {
       if (res) {
         this.content = res;
         console.log(this.content);
@@ -31,6 +32,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     return obj.title !== undefined;
   }
 
-  ngOnDestroy(): void {}
+  ngOnDestroy(): void {
+    this.unsubscribe.next(true);
+    this.unsubscribe.unsubscribe();
+  }
 
 }
