@@ -1,3 +1,13 @@
 #wrapper {
   margin-top: 5%;
+
+  #home-image {
+    height: auto;
+    width: 100%;
+  }
+
+  #home-text {
+    padding: 0 16px;
+    white-space: pre-wrap;
+  }
 }

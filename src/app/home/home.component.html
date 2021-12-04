@@ -6,10 +6,10 @@
       </h2>
     </mat-grid-tile>
     <mat-grid-tile colspan="2" rowspan="6">
-      <img [src]="content?.imageUrl" alt="placeholder image">
+      <img id="home-image" [src]="content?.imageUrl" alt="placeholder image">
     </mat-grid-tile>
     <mat-grid-tile colspan="2" rowspan="6">
-      <div style="white-space: pre-wrap" [innerHtml]="content?.text"></div>
+      <div id="home-text" [innerHtml]="content?.text"></div>
     </mat-grid-tile>
   </mat-grid-list>
 </div>
