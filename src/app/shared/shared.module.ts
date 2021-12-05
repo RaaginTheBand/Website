@@ -7,7 +7,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { SemipolarSpinnerModule } from 'angular-epic-spinners';
+import { RadarSpinnerModule } from 'angular-epic-spinners';
 
 
 @NgModule({
@@ -21,7 +21,7 @@ import { SemipolarSpinnerModule } from 'angular-epic-spinners';
     MatGridListModule,
     MatIconModule,
     MatTooltipModule,
-    SemipolarSpinnerModule
+    RadarSpinnerModule
   ],
   exports: [
     CommonModule,
@@ -32,7 +32,7 @@ import { SemipolarSpinnerModule } from 'angular-epic-spinners';
     MatGridListModule,
     MatIconModule,
     MatTooltipModule,
-    SemipolarSpinnerModule
+    RadarSpinnerModule
   ]
 })
 export class SharedModule { }
