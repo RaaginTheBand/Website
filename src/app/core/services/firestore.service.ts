@@ -6,14 +6,14 @@ import { Home } from '../models/home';
 @Injectable({
   providedIn: 'root'
 })
-export class HomeService {
+export class FirestoreService {
 
   default: Observable<Home | undefined> = new Observable;
   promo: Observable<Home | undefined> = new Observable;
 
-  constructor(private store: Firestore) { }
+  constructor(private firestore: Firestore) { }
 
-  getData(documentName: string): Observable<Home> {
-    return docData(doc(this.store, `home/${documentName}`)) as Observable<Home>;
+  getData<T>(collectionName: string, documentName: string): Observable<T> {
+    return docData(doc(this.firestore, `${collectionName}/${documentName}`)) as Observable<T>;
   }
 }
