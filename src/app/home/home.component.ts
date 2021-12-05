@@ -1,8 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { EMPTY, ReplaySubject } from 'rxjs';
 import { concatMap, takeUntil } from 'rxjs/operators';
 import { Home } from '../core/models/home';
+import { FirestoreService } from '../core/services/firestore.service';
 
 @Component({
   selector: 'app-home',
@@ -14,14 +14,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   content: Home = {} as Home;
   private unsubscribe: ReplaySubject<boolean> = new ReplaySubject(1);
 
-  constructor(private store: AngularFirestore) { }
+  constructor(private firestoreService: FirestoreService) { }
 
   ngOnInit(): void {
-    const promoObs = this.store.collection('home').doc<Home>('promo').valueChanges();
-    const defaultObs = this.store.collection('home').doc<Home>('default').valueChanges();
 
-    promoObs.pipe(concatMap(doc => doc === null ? EMPTY : defaultObs), takeUntil(this.unsubscribe)).subscribe(res => {
-      if (res && this.isHomeType(res)) {
+    this.firestoreService.getData<Home>('home', 'promo').pipe(concatMap(doc => doc === null ? EMPTY : this.firestoreService.getData<Home>('home', 'default')), takeUntil(this.unsubscribe)).subscribe(res => {
+      if (res) {
         this.content = res;
         this.formatText();
       }
@@ -35,10 +33,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     // if (text && text.includes('\t')) {
     //   //
     // }
-  }
-
-  isHomeType(obj: any): obj is Home {
-    return obj.title !== undefined;
   }
 
   ngOnDestroy(): void {
