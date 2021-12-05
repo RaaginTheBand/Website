@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { enableIndexedDbPersistence, getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -24,7 +24,11 @@ import { environment } from '../environments/environment';
     BrowserModule,
     BrowserAnimationsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore()),
+    provideFirestore(() => {
+      const firestore = getFirestore();
+      enableIndexedDbPersistence(firestore);
+      return firestore;
+    }),
     AppRoutingModule,
     CoreModule,
     SharedModule,
@@ -33,7 +37,6 @@ import { environment } from '../environments/environment';
     MatToolbarModule,
     HomeModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
