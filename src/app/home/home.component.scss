@@ -1,6 +1,10 @@
 #wrapper {
   margin-top: 5%;
 
+  #spinner {
+    filter: brightness(1.2);
+  }
+
   #home-image {
     height: auto;
     width: 100%;
