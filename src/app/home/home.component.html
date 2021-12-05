@@ -1,14 +1,17 @@
 <div class="outer-margins overlay" id="wrapper">
   <mat-grid-list cols="4" rowHeight="4:1">
-    <mat-grid-tile colspan="4" rowspan="1">
+    <mat-grid-tile colspan="4" rowspan="8" *ngIf="!isLoaded">
+      <app-radar-spinner [animationDuration]="1500" [size]="80" [color]="color" id="spinner"></app-radar-spinner>
+    </mat-grid-tile>
+    <mat-grid-tile colspan="4" rowspan="1" *ngIf="isLoaded">
       <h2>
         {{ content?.title }}
       </h2>
     </mat-grid-tile>
-    <mat-grid-tile colspan="2" rowspan="6">
+    <mat-grid-tile colspan="2" rowspan="6" *ngIf="isLoaded">
       <img id="home-image" [src]="content?.imageUrl" alt="placeholder image">
     </mat-grid-tile>
-    <mat-grid-tile colspan="2" rowspan="6">
+    <mat-grid-tile colspan="2" rowspan="6" *ngIf="isLoaded">
       <div id="home-text" [innerHtml]="content?.text"></div>
     </mat-grid-tile>
   </mat-grid-list>
