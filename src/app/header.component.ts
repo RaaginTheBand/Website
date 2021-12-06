@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   instagramIcon = faInstagramSquare;
   isDarkOn = false;
   tabs: Tabs[] = [
-    { name: 'Home', route: 'home' },
+    { name: 'Home', route: '' },
     { name: 'About', route: 'about' },
     { name: 'Events', route: 'events' },
     { name: 'Media', route: 'media' },
