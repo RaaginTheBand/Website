@@ -6,6 +6,7 @@ const routes: Routes = [
   { path: 'about', loadChildren: () => import('./about/about.module').then(m => m.AboutModule) },
   { path: 'events', loadChildren: () => import('./events/events.module').then(m => m.EventsModule) },
   { path: 'media', loadChildren: () => import('./media/media.module').then(m => m.MediaModule) },
+  { path: 'contact', loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule) },
   { path: '**', redirectTo: '/' }
 ];
 
