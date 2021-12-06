@@ -7,7 +7,7 @@
 }
 
 mat-toolbar {
-  height: 102px !important;
+  height: var(--header-height) !important;
 
   #header-content {
     height: inherit;
