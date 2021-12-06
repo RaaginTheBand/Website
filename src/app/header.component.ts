@@ -32,8 +32,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  selectTab(event: any): void {
-    this.router.navigate([this.tabs[event.index].route]);
+  selectTab(index: number): void {
+    this.router.navigate([this.tabs[index].route]);
   }
 
   toggleTheme(): void {

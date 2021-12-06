@@ -17,8 +17,8 @@
       </div>
       <div fxFlex="1 1 auto"></div>
       <div class="flex-areas" fxLayout="row" fxLayoutAlign="space-evenly center">
-        <mat-tab-group backgroundColor="primary" color="warn" (selectedTabChange)="selectTab($event)">
-          <mat-tab [label]="tab.name" *ngFor="let tab of tabs"></mat-tab>
+        <mat-tab-group backgroundColor="primary" color="warn" (selectedTabChange)="selectTab($event.index)">
+          <mat-tab [label]="tab.name" [aria-label]="tab.name + ' tab'" *ngFor="let tab of tabs"></mat-tab>
         </mat-tab-group>
       </div>
       <div fxFlex="1 1 auto"></div>
