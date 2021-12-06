@@ -26,19 +26,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.firestoreService.getData<Home>('home', 'promo').pipe(concatMap(doc => doc === null ? EMPTY : this.firestoreService.getData<Home>('home', 'default')), takeUntil(this.unsubscribe)).subscribe(res => {
       if (res) {
         this.content = res;
-        this.formatText();
         this.isLoaded = true;
       }
     });
-  }
-
-  formatText(): void {
-    if (this.content.text.includes('\\n')) {
-      this.content.text = this.content.text.replace(/\\n/g, '<br>');
-    }
-    // if (text && text.includes('\t')) {
-    //   //
-    // }
   }
 
   ngOnDestroy(): void {
