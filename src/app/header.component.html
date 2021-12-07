@@ -2,7 +2,7 @@
   <mat-toolbar color="primary">
     <div class="outer-margins" id="header-content">
       <div class="flex-areas" fxLayout="row" fxLayoutAlign="space-evenly center">
-        <img [src]="'assets/images/Logo_' + (isDarkOn ? 'white' : 'black') + '.png'" alt="Raagin logo" id="logo">
+        <img [src]="'assets/images/Logo_' + (isDarkOn ? 'white' : 'black') + '.png'" alt="Raagin logo" id="logo" (click)="selectTab(0)">
         <a href="https://www.facebook.com/raagintheband/" target="_blank" rel="noopener noreferrer" mat-button color="accent" [disableRipple]="true" class="social-icons">
           <fa-icon [icon]="facebookIcon" size="3x"></fa-icon>
         </a>
@@ -17,7 +17,7 @@
       </div>
       <div fxFlex="1 1 auto"></div>
       <div class="flex-areas" fxLayout="row" fxLayoutAlign="space-evenly center">
-        <mat-tab-group backgroundColor="primary" color="warn" (selectedTabChange)="selectTab($event.index)">
+        <mat-tab-group backgroundColor="primary" color="warn" [selectedIndex]="currentTabIndex" (selectedTabChange)="selectTab($event.index)">
           <mat-tab [label]="tab.name" [aria-label]="tab.name + ' tab'" *ngFor="let tab of tabs"></mat-tab>
         </mat-tab-group>
       </div>
