@@ -6,19 +6,25 @@
   height: calc(100vh - var(--header-height));
   overflow: hidden;
 
-  #content-area {
+  #background-area {
     background-image: url('../assets/images/Background.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    filter: blur(12px) brightness(0.8);
+    filter: brightness(0.8);
     height: inherit;
-    padding-top: calc(calc(100vh - calc(100vh - var(--header-height))) / 1.5);
-    transform: scale(1.1);
-    z-index: -2;
+    z-index: -1;
+
+    &::before {
+      content: "";
+      backdrop-filter: blur(12px);
+      height: 100vh;
+      position: absolute;
+      width: 100%;
+    }
 
     .dark-theme & {
-      filter: blur(12px) brightness(0.4);
+      filter: brightness(0.4);
     }
   }
 }
