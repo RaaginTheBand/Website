@@ -1,4 +1,5 @@
 export interface History {
   imageUrl: string;
-  text: string;
+  text1: string;
+  text2: string;
 }
