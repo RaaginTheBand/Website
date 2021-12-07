@@ -1,7 +1,9 @@
 <div [ngClass]="{ 'dark-theme': darkMode }" id="wrapper">
   <app-header></app-header>
   <div id="content-container">
-    <div id="content-area"></div>
-    <router-outlet></router-outlet>
+    <div id="background-area"></div>
+    <div id="content-area">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>

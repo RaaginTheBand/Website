@@ -1,15 +1,19 @@
-#history-image {
-  display: block;
-  height: auto;
-  max-height: 100%;
-  max-width: 100%;
-  padding-left: 16px;
-  width: auto;
-}
+#wrapper {
+  margin-top: 5%;
 
-.history-text {
-  font-size: 1.2vw;
-  line-height: 1.2;
-  padding: 0 16px;
-  white-space: pre-wrap;
+  #history-image {
+    display: block;
+    height: auto;
+    max-height: 100%;
+    max-width: 100%;
+    padding-left: 16px;
+    width: auto;
+  }
+
+  .history-text {
+    font-size: 1.2vw;
+    line-height: 1.2;
+    padding: 0 16px;
+    white-space: pre-wrap;
+  }
 }
