@@ -18,9 +18,9 @@ mat-toolbar {
       height: inherit;
 
       #logo {
+        cursor: pointer;
         height: 175px;
-        margin: 0 -8px;
-        padding-right: 48px;
+        margin: 0 48px 0 -8px;
         padding-top: 18px;
       }
 
