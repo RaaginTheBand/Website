@@ -5,13 +5,17 @@
     filter: brightness(1.2);
   }
 
-  #home-image {
-    display: block;
-    height: auto;
-    max-height: 90%;
-    max-width: 100%;
-    padding-left: 16px;
-    width: auto;
+  #home-image-wrapper {
+    height: inherit;
+
+    #home-image {
+      display: block;
+      height: auto;
+      max-height: 90%;
+      max-width: 100%;
+      padding-left: 16px;
+      width: auto;
+    }
   }
 
   #home-text {
