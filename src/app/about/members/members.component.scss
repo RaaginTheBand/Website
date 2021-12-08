@@ -1,0 +1,46 @@
+.member-headers {
+  width: 100%;
+}
+
+.left-headers {
+  text-align: end;
+}
+
+.right-headers {
+  text-align: start;
+}
+
+.member-image-wrappers {
+  height: inherit;
+
+  .member-images {
+    display: block;
+    height: auto;
+    max-height: 90%;
+    max-width: 100%;
+    padding-left: 16px;
+    width: auto;
+  }
+}
+
+.member-texts {
+  font-size: 1.2vw;
+  line-height: 1.2;
+  white-space: pre-wrap;
+}
+
+.left-texts {
+  margin-left: 10%;
+  text-align: end;
+}
+
+.right-texts {
+  margin-right: 10%;
+  text-align: start;
+}
+
+.dividers {
+  background-color: currentColor;
+  height: 4px;
+  width: 90%;
+}
