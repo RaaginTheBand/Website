@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ThemePalette } from '@angular/material/core';
 import { EMPTY, ReplaySubject } from 'rxjs';
 import { concatMap, takeUntil } from 'rxjs/operators';
+
 import { Home } from '../core/models/home';
 import { DarkModeService } from '../core/services/dark-mode.service';
 import { FirestoreService } from '../core/services/firestore.service';
