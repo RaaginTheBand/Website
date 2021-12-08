@@ -1,5 +1,8 @@
 <div class="outer-margins overlay" id="wrapper">
   <mat-grid-list cols="6" rowHeight="7:3">
+    <mat-grid-tile colspan="6" rowspan="7" *ngIf="!isLoaded">
+      <app-radar-spinner [animationDuration]="1500" [size]="80" [color]="color" id="spinner"></app-radar-spinner>
+    </mat-grid-tile>
     <mat-grid-tile colspan="6" rowspan="1">
       <h2>History</h2>
     </mat-grid-tile>
