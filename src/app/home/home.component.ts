@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit, OnDestroy {
               private firestoreService: FirestoreService) { }
 
   ngOnInit(): void {
-    this.darkmodeService.isDarkOn.subscribe(res => this.color = (res) ? this.darkmodeService.spinnerDark : this.darkmodeService.spinnerLight);
+    this.darkmodeService.isDarkOn.pipe(takeUntil(this.unsubscribe)).subscribe(res => this.color = (res) ? this.darkmodeService.spinnerDark : this.darkmodeService.spinnerLight);
     this.firestoreService.getData<Home>('home', 'promo').pipe(concatMap(doc => doc === null ? EMPTY : this.firestoreService.getData<Home>('home', 'default')), takeUntil(this.unsubscribe)).subscribe(res => {
       if (res) {
         this.content = res;
