@@ -1,3 +1,26 @@
 <div class="outer-margins overlay">
-  <p>Coming soon!</p>
+  <mat-grid-list cols="6" rowHeight="4:1">
+    <ng-template [ngIf]="!isLoaded" [ngIfElse]="loaded"></ng-template>
+    <ng-template #loaded>
+      <mat-grid-tile colspan="6" rowspan="1">
+        <h2>Members</h2>
+      </mat-grid-tile>
+      <ng-container *ngFor="let name of names; last as isLast; even as isEven; odd as isOdd">
+        <mat-grid-tile colspan="2" rowspan="4" *ngIf="isEven">
+          <img class="member-image" [src]="content[name]?.imageUrl" alt="placeholder image">
+        </mat-grid-tile>
+        <mat-grid-tile colspan="4" rowspan="1">
+          <h3 class="member-titles">
+            {{ name + ' - ' + content[name]?.role }}
+          </h3>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="4" rowspan="3">
+          <div class="member-texts" [innerText]="content[name]?.description"></div>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="2" rowspan="4" *ngIf="isOdd">
+          <img class="member-images" [src]="content[name]?.imageUrl" alt="placeholder image">
+        </mat-grid-tile>
+      </ng-container>
+    </ng-template>
+  </mat-grid-list>
 </div>
