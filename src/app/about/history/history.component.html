@@ -10,7 +10,9 @@
         <h2>History</h2>
       </mat-grid-tile>
       <mat-grid-tile colspan="2" rowspan="4">
-        <img id="history-image" [src]="content?.imageUrl" alt="placeholder image">
+        <div id="history-image-wrapper">
+          <img id="history-image" [src]="content?.imageUrl" alt="placeholder image">
+        </div>
       </mat-grid-tile>
       <mat-grid-tile colspan="4" rowspan="4">
         <div class="history-text" [innerHtml]="content?.text1"></div>
