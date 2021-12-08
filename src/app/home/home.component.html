@@ -9,7 +9,9 @@
       </h2>
     </mat-grid-tile>
     <mat-grid-tile colspan="2" rowspan="5" *ngIf="isLoaded">
-      <img id="home-image" [src]="content?.imageUrl" alt="placeholder image">
+      <div id="home-image-wrapper">
+        <img id="home-image" [src]="content?.imageUrl" alt="placeholder image">
+      </div>
     </mat-grid-tile>
     <mat-grid-tile colspan="2" rowspan="5" *ngIf="isLoaded">
       <div id="home-text" [innerHtml]="content?.text"></div>
