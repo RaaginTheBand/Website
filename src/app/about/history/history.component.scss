@@ -1,5 +1,5 @@
-#wrapper {
-  margin-top: 5%;
+#history-image-wrapper {
+  height: inherit;
 
   #history-image {
     display: block;
@@ -9,11 +9,11 @@
     padding-left: 16px;
     width: auto;
   }
+}
 
-  .history-text {
-    font-size: 1.2vw;
-    line-height: 1.2;
-    padding: 0 16px;
-    white-space: pre-wrap;
-  }
+.history-text {
+  font-size: 1.2vw;
+  line-height: 1.2;
+  padding: 0 16px;
+  white-space: pre-wrap;
 }

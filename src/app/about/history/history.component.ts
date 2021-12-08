@@ -1,25 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { History } from '../../core/models/about';
-import { FirestoreService } from '../../core/services/firestore.service';
 
 @Component({
   selector: 'app-history',
   templateUrl: './history.component.html',
   styleUrls: ['./history.component.scss']
 })
-export class HistoryComponent implements OnInit {
+export class HistoryComponent {
 
-  content: History = {} as History;
+  @Input('spinnerColor') color = '';
+  @Input('data') content: History = {} as History;
+  @Input() isLoaded = false;
 
-  constructor(private firestoreService: FirestoreService) { }
-
-  ngOnInit(): void {
-    this.firestoreService.getData<History>('about', 'history').subscribe(res => {
-      if (res) {
-        this.content = res;
-      }
-    });
-  }
+  constructor() { }
 
 }

@@ -1,27 +1,23 @@
-#wrapper {
-  margin-top: 5%;
+#spinner {
+  filter: brightness(1.2);
+}
 
-  #spinner {
-    filter: brightness(1.2);
+#home-image-wrapper {
+  height: inherit;
+
+  #home-image {
+    display: block;
+    height: auto;
+    max-height: 90%;
+    max-width: 100%;
+    padding-left: 16px;
+    width: auto;
   }
+}
 
-  #home-image-wrapper {
-    height: inherit;
-
-    #home-image {
-      display: block;
-      height: auto;
-      max-height: 90%;
-      max-width: 100%;
-      padding-left: 16px;
-      width: auto;
-    }
-  }
-
-  #home-text {
-    font-size: 1.2vw;
-    line-height: 1.2;
-    padding: 0 16px;
-    white-space: pre-wrap;
-  }
+#home-text {
+  font-size: 1.2vw;
+  line-height: 1.2;
+  padding: 0 16px;
+  white-space: pre-wrap;
 }
