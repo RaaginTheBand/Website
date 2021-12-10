@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { EventsRoutingModule } from './events-routing.module';
 import { EventsComponent } from './events.component';
+import { UpcomingComponent } from './upcoming/upcoming.component';
 
 
 @NgModule({
   declarations: [
-    EventsComponent
+    EventsComponent,
+    UpcomingComponent
   ],
   imports: [
     CommonModule,
