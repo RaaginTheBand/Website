@@ -1,0 +1,40 @@
+<div class="outer-margins overlay">
+  <mat-grid-list cols="6" rowHeight="7:3">
+    <ng-template [ngIf]="!isLoaded" [ngIfElse]="loaded">
+      <mat-grid-tile colspan="6" rowspan="7">
+        <app-radar-spinner [animationDuration]="1500" [size]="80" [color]="color" id="spinner"></app-radar-spinner>
+      </mat-grid-tile>
+    </ng-template>
+    <ng-template #loaded>
+      <mat-grid-tile colspan="6" rowspan="1">
+        <h2>Upcoming Events</h2>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="4" rowspan="7">
+        <div id="upcoming-image-wrapper">
+          <img id="upcoming-image" [src]="content?.imageUrl" alt="placeholder image">
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2" rowspan="1">
+        <p>{{ content?.name }}</p>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2" rowspan="1">
+        <p>
+          Tickets: <a [href]="content?.ticketUrl" target="_blank" rel="noopener noreferrer">{{ content?.ticketUrl }}</a>
+        </p>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2" rowspan="1">
+        <p>Date and time: {{ content?.dateTime!.toDate() | date:'MMMM d, y, h:mm a' }}</p>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2" rowspan="2">
+        <a [href]="content?.location!.mapUrl" target="_blank" rel="noopener noreferrer">
+          <p>{{ content?.location!.name }}</p>
+          <p>{{ content?.location!.line1 }}</p>
+          <p>{{ content?.location!.line2 }}</p>
+        </a>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2" rowspan="2">
+        <p>{{ content?.description }}</p>
+      </mat-grid-tile>
+    </ng-template>
+  </mat-grid-list>
+</div>
