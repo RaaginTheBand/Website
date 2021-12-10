@@ -20,11 +20,11 @@ export class AboutComponent implements OnInit, OnDestroy {
   membersData: Members = {} as Members;
   private unsubscribe: ReplaySubject<boolean> = new ReplaySubject(1);
 
-  constructor(private darkmodeService: DarkModeService,
+  constructor(private darkModeService: DarkModeService,
               private firestoreService: FirestoreService) { }
 
   ngOnInit(): void {
-    this.darkmodeService.isDarkOn.pipe(takeUntil(this.unsubscribe)).subscribe(res => this.color = (res) ? this.darkmodeService.spinnerDark : this.darkmodeService.spinnerLight);
+    this.darkModeService.isDarkOn.pipe(takeUntil(this.unsubscribe)).subscribe(res => this.color = (res) ? this.darkModeService.spinnerDark : this.darkModeService.spinnerLight);
     this.firestoreService.getData<History>('about', 'history').pipe(takeUntil(this.unsubscribe)).subscribe(res => {
       if (res) {
         this.historyData = res;

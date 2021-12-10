@@ -24,6 +24,7 @@ export class EventsComponent implements OnInit, OnDestroy {
               private firestoreService: FirestoreService) { }
 
   ngOnInit(): void {
+    this.darkModeService.isDarkOn.pipe(takeUntil(this.unsubscribe)).subscribe(res => this.color = (res) ? this.darkModeService.spinnerDark : this.darkModeService.spinnerLight);
     this.firestoreService.getData<Upcoming>('events', 'upcoming').pipe(takeUntil(this.unsubscribe)).subscribe(res => {
       if (res) {
         this.upcomingData = res;
