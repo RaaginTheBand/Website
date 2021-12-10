@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { EventsRoutingModule } from './events-routing.module';
 import { EventsComponent } from './events.component';
 import { UpcomingComponent } from './upcoming/upcoming.component';
 import { PastComponent } from './past/past.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -14,8 +14,8 @@ import { PastComponent } from './past/past.component';
     PastComponent
   ],
   imports: [
-    CommonModule,
-    EventsRoutingModule
+    EventsRoutingModule,
+    SharedModule
   ]
 })
 export class EventsModule { }
