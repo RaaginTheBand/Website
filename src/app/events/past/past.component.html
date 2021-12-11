@@ -2,7 +2,7 @@
   <mat-grid-list cols="6" rowHeight="3:1">
     <ng-template [ngIf]="!isLoaded" [ngIfElse]="loaded">
       <mat-grid-tile colspan="6" rowspan="9">
-        <app-radar-spinner [animationDuration]="1500" [size]="80" [color]="color" id="spinner"></app-radar-spinner>
+        <app-radar-spinner [animationDuration]="1500" [size]="80" [color]="color" class="spinner"></app-radar-spinner>
       </mat-grid-tile>
     </ng-template>
     <ng-template #loaded>
