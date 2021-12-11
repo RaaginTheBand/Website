@@ -71,7 +71,6 @@ body {
   .dark-theme & {
     background-color: $dark-secondary-text;
     color: $dark-primary-text;
-    // opacity: 0.8;
   }
 }
 
@@ -82,4 +81,5 @@ body {
 .standard-text {
   font-size: 1.2vw;
   line-height: 1.2;
+  white-space: pre-wrap;
 }
