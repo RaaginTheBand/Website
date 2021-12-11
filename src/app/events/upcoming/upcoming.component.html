@@ -6,19 +6,19 @@
       </mat-grid-tile>
     </ng-template>
     <ng-template #loaded>
-      <mat-grid-tile colspan="6" rowspan="1">
-        <h2>Upcoming Events</h2>
+      <mat-grid-tile colspan="6" rowspan="2">
+        <h2 class="overlay-headers">Upcoming Events</h2>
       </mat-grid-tile>
       <mat-grid-tile colspan="4" rowspan="9">
-        <div id="upcoming-image-wrapper">
-          <img id="upcoming-image" [src]="content?.imageUrl" alt="placeholder image">
+        <div class="image-wrapper">
+          <img class="image" [src]="content?.imageUrl" alt="placeholder image">
         </div>
       </mat-grid-tile>
       <mat-grid-tile colspan="2" rowspan="1">
-        <h3 class="standard-text event-info" id="upcoming-event-name">{{ content?.name }}</h3>
+        <h3 class="standard-text event-info">{{ content?.name }}</h3>
       </mat-grid-tile>
       <mat-grid-tile colspan="2" rowspan="1" *ngIf="content?.ticketUrl">
-        <p class="event-info standard-text" id="upcoming-ticket-link">
+        <p class="event-info standard-text">
           Tickets: <a [href]="content?.ticketUrl" target="_blank" rel="noopener noreferrer" class="links">{{ content?.ticketUrl }}</a>
         </p>
       </mat-grid-tile>
@@ -33,7 +33,7 @@
         </a>
       </mat-grid-tile>
       <mat-grid-tile colspan="2" rowspan="4">
-        <div id="upcoming-text" class="standard-text event-info" [innerHtml]="content?.description"></div>
+        <div [innerHtml]="content?.description" class="standard-text event-info" id="upcoming-text"></div>
       </mat-grid-tile>
     </ng-template>
   </mat-grid-list>
