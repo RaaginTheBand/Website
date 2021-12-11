@@ -31,7 +31,7 @@ export class EventsComponent implements OnInit, OnDestroy {
         this.isUpcomingLoaded = true;
       }
     });
-    this.firestoreService.getData<any>('events', 'past').pipe(takeUntil(this.unsubscribe)).subscribe(res => {
+    this.firestoreService.getData<{events: Past[]}>('events', 'past').pipe(takeUntil(this.unsubscribe)).subscribe(res => {
       if (res) {
         this.pastData = res.events;
         this.isPastLoaded = true;
