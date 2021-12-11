@@ -24,6 +24,18 @@ body {
   font-size: 1.4vw;
 }
 
+.image-wrapper {
+  height: inherit;
+
+  .image {
+    display: block;
+    height: auto;
+    max-height: 90%;
+    max-width: 100%;
+    width: auto;
+  }
+}
+
 .links {
   &:link, &:visited {
     background-color: transparent;
