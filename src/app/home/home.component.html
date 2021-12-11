@@ -7,17 +7,17 @@
     </ng-template>
     <ng-template #loaded>
       <mat-grid-tile colspan="4" rowspan="1">
-        <h2>
+        <h2 class="overlay-headers">
           {{ content?.title }}
         </h2>
       </mat-grid-tile>
       <mat-grid-tile colspan="2" rowspan="5">
-        <div id="home-image-wrapper">
-          <img id="home-image" [src]="content?.imageUrl" alt="placeholder image">
+        <div class="image-wrapper">
+          <img [src]="content?.imageUrl" alt="placeholder image" class="image">
         </div>
       </mat-grid-tile>
       <mat-grid-tile colspan="2" rowspan="5">
-        <div id="home-text" [innerHtml]="content?.text"></div>
+        <div [innerHtml]="content?.text" class="standard-text" id="home-text"></div>
       </mat-grid-tile>
     </ng-template>
   </mat-grid-list>

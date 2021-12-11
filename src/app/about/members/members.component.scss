@@ -1,5 +1,4 @@
 .member-headers {
-  font-size: 1.4vw;
   width: 100%;
 }
 
@@ -9,25 +8,6 @@
 
 .right-headers {
   text-align: start;
-}
-
-.member-image-wrappers {
-  height: inherit;
-
-  .member-images {
-    display: block;
-    height: auto;
-    max-height: 90%;
-    max-width: 100%;
-    padding-left: 16px;
-    width: auto;
-  }
-}
-
-.member-texts {
-  font-size: 1.2vw;
-  line-height: 1.2;
-  white-space: pre-wrap;
 }
 
 .left-texts {

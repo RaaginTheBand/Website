@@ -7,18 +7,18 @@
     </ng-template>
     <ng-template #loaded>
       <mat-grid-tile colspan="6" rowspan="1">
-        <h2>History</h2>
+        <h2 class="overlay-headers">History</h2>
       </mat-grid-tile>
       <mat-grid-tile colspan="2" rowspan="4">
-        <div id="history-image-wrapper">
-          <img id="history-image" [src]="content?.imageUrl" alt="placeholder image">
+        <div class="image-wrapper">
+          <img [src]="content?.imageUrl" alt="placeholder image" class="image" id="history-image">
         </div>
       </mat-grid-tile>
       <mat-grid-tile colspan="4" rowspan="4">
-        <div class="history-text" [innerHtml]="content?.text1"></div>
+        <div class="history-text standard-text" [innerHtml]="content?.text1"></div>
       </mat-grid-tile>
       <mat-grid-tile colspan="6" rowspan="2">
-        <div class="history-text" [innerHtml]="content?.text2"></div>
+        <div class="history-text standard-text" [innerHtml]="content?.text2"></div>
       </mat-grid-tile>
     </ng-template>
   </mat-grid-list>
