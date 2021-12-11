@@ -18,15 +18,15 @@
         <h3 class="standard-text event-info" id="upcoming-event-name">{{ content?.name }}</h3>
       </mat-grid-tile>
       <mat-grid-tile colspan="2" rowspan="1" *ngIf="content?.ticketUrl">
-        <p class="standard-text event-info" id="upcoming-ticket-link">
-          Tickets: <a [href]="content?.ticketUrl" target="_blank" rel="noopener noreferrer">{{ content?.ticketUrl }}</a>
+        <p class="event-info standard-text" id="upcoming-ticket-link">
+          Tickets: <a [href]="content?.ticketUrl" target="_blank" rel="noopener noreferrer" class="links">{{ content?.ticketUrl }}</a>
         </p>
       </mat-grid-tile>
       <mat-grid-tile colspan="2" rowspan="1">
         <p class="standard-text event-info">{{ content?.dateTime!.toDate() | date:'MMMM d, y, h:mm a' }}</p>
       </mat-grid-tile>
       <mat-grid-tile colspan="2" rowspan="2">
-        <a [href]="content?.location!.mapUrl" target="_blank" rel="noopener noreferrer" class="standard-text event-info">
+        <a [href]="content?.location!.mapUrl" target="_blank" rel="noopener noreferrer" class="event-info links standard-text">
           <p class="standard-text">{{ content?.location!.name }}</p>
           <p class="standard-text">{{ content?.location!.line1 }}</p>
           <p class="standard-text">{{ content?.location!.line2 }}</p>

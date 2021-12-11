@@ -1,3 +1,4 @@
+@use '@angular/material' as mat;
 @import './styles/app-theme.scss';
 
 :root {
@@ -21,6 +22,26 @@ body {
 
 .header-text {
   font-size: 1.4vw;
+}
+
+.links {
+  &:link, &:visited {
+    background-color: transparent;
+    color: mat.get-color-from-palette($light-primary, 'default');
+
+    .dark-theme & {
+      color: mat.get-color-from-palette($dark-tabs, 'default');
+    }
+  }
+
+  &:active, &:hover {
+    background-color: transparent;
+    color: $light-primary-text;
+
+    .dark-theme & {
+      color: $dark-primary-text;
+    }
+  }
 }
 
 .outer-margins {
