@@ -40,7 +40,7 @@ body {
   &:link, &:visited {
     background-color: transparent;
     color: mat.get-color-from-palette($light-primary, 'default');
-    filter: brightness(1.2);
+    filter: brightness(1.1);
 
     .dark-theme & {
       color: mat.get-color-from-palette($dark-tabs, 'default');
