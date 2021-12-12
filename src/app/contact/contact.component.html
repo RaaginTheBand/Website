@@ -1,3 +1,61 @@
-<div class="outer-margins overlay" id="wrapper">
-  <p>Coming soon!</p>
+<div class="outer-margins overlay">
+  <mat-grid-list cols="5" rowHeight="3:1">
+    <ng-template [ngIf]="!isLoaded" [ngIfElse]="loaded">
+      <mat-grid-tile colspan="5" rowspan="6">
+        <app-radar-spinner [animationDuration]="1500" [size]="80" [color]="color" class="spinner"></app-radar-spinner>
+      </mat-grid-tile>
+    </ng-template>
+    <ng-template #loaded>
+      <mat-grid-tile colspan="5" rowspan="2">
+        <h2 class="overlay-headers">
+          Contact Raagin
+        </h2>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="5" rowspan="2">
+        <p class="standard-text">
+          {{ content?.emailText }}
+          <a href="mailto:raagintheband@gmail.com" target="_blank" rel="noopener noreferrer" class="links">raagintheband@gmail.com</a>
+        </p>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="5" rowspan="1">
+        <hr class="dividers">
+      </mat-grid-tile>
+      <mat-grid-tile colspan="5" rowspan="2">
+        <h2 class="overlay-headers">
+          Connect With Raagin
+        </h2>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2" rowspan="1">
+        <div fxLayout="row" fxLayoutAlign="end center" class="social-icons">
+          <a href="https://www.facebook.com/raagintheband/" target="_blank" rel="noopener noreferrer" class="links">
+            <fa-icon [icon]="facebookIcon" size="5x"></fa-icon>
+          </a>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="3" rowspan="1">
+        <div fxLayout="row" fxLayoutAlign="start center" class="social-text">
+          <a href="https://www.facebook.com/raagintheband/" target="_blank" rel="noopener noreferrer" class="links standard-text">
+            {{ content?.facebookText }}
+          </a>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2" rowspan="1">
+        <div fxLayout="row" fxLayoutAlign="end center" class="social-icons">
+          <a href="https://www.instagram.com/raagintheband/" target="_blank" rel="noopener noreferrer" class="links">
+            <fa-icon [icon]="instagramIcon" size="5x"></fa-icon>
+          </a>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="3" rowspan="1">
+        <div fxLayout="row" fxLayoutAlign="start center" class="social-text">
+          <a href="https://www.instagram.com/raagintheband/" target="_blank" rel="noopener noreferrer" class="links standard-text">
+            {{ content?.instagramText }}
+          </a>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="5" rowspan="1">
+        <div id="spacer"></div>
+      </mat-grid-tile>
+    </ng-template>
+  </mat-grid-list>
 </div>
