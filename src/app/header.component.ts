@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { FaConfig } from '@fortawesome/angular-fontawesome';
 import { faFacebookSquare, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
-import { Tabs } from './core/models/tabs';
+import { tabs } from './core/constants/tabs';
 import { DarkModeService } from './core/services/dark-mode.service';
 
 @Component({
@@ -16,13 +16,6 @@ export class HeaderComponent implements OnInit {
   facebookIcon = faFacebookSquare;
   instagramIcon = faInstagramSquare;
   isDarkOn = false;
-  tabs: Tabs[] = [
-    { name: 'Home', route: '' },
-    { name: 'About', route: 'about' },
-    { name: 'Events', route: 'events' },
-    { name: 'Media', route: 'media' },
-    { name: 'Contact', route: 'contact' }
-  ];
 
   constructor(private darkModeService: DarkModeService,
               private faConfig: FaConfig,
@@ -39,11 +32,11 @@ export class HeaderComponent implements OnInit {
   }
 
   selectTab(index: number): void {
-    this.router.navigate([this.tabs[index].route]);
+    this.router.navigate([tabs[index].route]);
   }
 
   setCurrentTabIndex(path: string): void {
-    this.currentTabIndex = this.tabs.findIndex(tab => tab.route == path);
+    this.currentTabIndex = tabs.findIndex(tab => tab.route == path);
   }
 
   toggleTheme(): void {
