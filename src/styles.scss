@@ -15,6 +15,16 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+#mobile-menu {
+  background-color: mat.get-color-from-palette($light-primary, 'default');
+  color: mat.get-color-from-palette($light-tabs, 'default');
+
+  .dark-theme & {
+    background-color: mat.get-color-from-palette($dark-primary, 'default');
+    color: mat.get-color-from-palette($dark-tabs, 'default');
+  }
+}
+
 .dividers {
   background-color: currentColor;
   height: 0.3vh;

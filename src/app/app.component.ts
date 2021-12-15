@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+
+import { tabs } from './core/constants/tabs';
 import { DarkModeService } from './core/services/dark-mode.service';
 
 @Component({
@@ -9,10 +11,20 @@ import { DarkModeService } from './core/services/dark-mode.service';
 export class AppComponent {
 
   darkMode = false;
+  isMobileMenuOpen = false;
+  tabs = tabs;
 
   constructor(private darkModeService: DarkModeService) {
     this.darkModeService.isDarkOn.subscribe((bool) => {
       this.darkMode = bool;
     });
+  }
+
+  close(): void {
+    this.isMobileMenuOpen = false;
+  }
+
+  open(event: boolean) {
+    this.isMobileMenuOpen = true;
   }
 }
