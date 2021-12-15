@@ -4,10 +4,12 @@
       <div class="flex-areas" fxLayout="row" fxLayoutAlign="space-evenly center">
         <img [src]="'assets/images/Logo_' + (isDarkOn ? 'white' : 'black') + '.png'" alt="Raagin logo" id="logo" (click)="selectTab(0)">
         <a href="https://www.facebook.com/raagintheband/" target="_blank" rel="noopener noreferrer" mat-button color="accent" [disableRipple]="true" class="social-icons">
-          <fa-icon [icon]="facebookIcon" size="3x"></fa-icon>
+          <fa-icon [icon]="facebookIcon" size="3x" class="large-icons"></fa-icon>
+          <fa-icon [icon]="facebookIcon" size="2x" class="small-icons"></fa-icon>
         </a>
         <a href="https://www.instagram.com/raagintheband/" target="_blank" rel="noopener noreferrer" mat-button color="accent" [disableRipple]="true" class="social-icons">
-          <fa-icon [icon]="instagramIcon" size="3x"></fa-icon>
+          <fa-icon [icon]="instagramIcon" size="3x" class="large-icons"></fa-icon>
+          <fa-icon [icon]="instagramIcon" size="2x" class="small-icons"></fa-icon>
         </a>
         <button mat-icon-button color="accent" matTooltip="Switch to {{ isDarkOn ? 'light' : 'dark' }} mode" (click)="toggleTheme()" aria-label="Light/dark toggle button" id="toggle-btn">
           <mat-icon>

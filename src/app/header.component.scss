@@ -31,6 +31,10 @@ mat-toolbar {
         min-width: fit-content;
         padding: 0;
 
+        .small-icons {
+          display: none;
+        }
+
         .mat-button-ripple {
           bottom: 9px;
           top: 2px;
@@ -93,7 +97,7 @@ mat-toolbar {
   }
 }
 
-@media screen and (max-width: $max-tablet) {
+@media screen and (max-width: $max-tablet-landscape) {
   #header-content {
     margin: 0 !important;
 
@@ -111,7 +115,7 @@ mat-toolbar {
   }
 }
 
-@media screen and (max-width: $mid-tablet) {
+@media screen and (max-width: $mid-tablet-landscape) {
   #header-content {
     margin: 0 !important;
 
@@ -137,7 +141,7 @@ mat-toolbar {
   }
 }
 
-@media screen and (max-width: $min-tablet) {
+@media screen and (max-width: $min-tablet-landscape) {
   #header-content {
     margin: 0 !important;
 
@@ -147,6 +151,15 @@ mat-toolbar {
 
     .social-icons {
       margin: 0 12px !important;
+
+      .small-icons {
+        display: inline-block !important;
+        margin-bottom: -2px !important;
+      }
+
+      .large-icons {
+        display: none !important;
+      }
     }
 
     #toggle-btn {
