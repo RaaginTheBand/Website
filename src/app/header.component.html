@@ -1,4 +1,4 @@
-<header>
+<header id="desktop">
   <mat-toolbar color="primary">
     <div class="outer-margins" id="header-content">
       <div class="flex-areas" fxLayout="row" fxLayoutAlign="space-evenly center">
@@ -24,6 +24,32 @@
         </mat-tab-group>
       </div>
       <div fxFlex="1 1 auto"></div>
+    </div>
+  </mat-toolbar>
+</header>
+
+<header id="mobile">
+  <mat-toolbar color="primary">
+    <div fxLayout="row" fxLayoutAlign="space-between center" id="header-content">
+      <button mat-icon-button color="accent" aria-label="Menu button">
+        <mat-icon>
+          menu
+        </mat-icon>
+      </button>
+      <img [src]="'assets/images/Logo_' + (isDarkOn ? 'white' : 'black') + '.png'" alt="Raagin logo" id="logo" (click)="selectTab(0)">
+      <div>
+        <a href="https://m.facebook.com/raagintheband/" target="_blank" rel="noopener noreferrer" mat-button color="accent" [disableRipple]="true" class="social-icons">
+          <fa-icon [icon]="facebookIcon" size="2x"></fa-icon>
+        </a>
+        <a href="https://www.instagram.com/raagintheband/" target="_blank" rel="noopener noreferrer" mat-button color="accent" [disableRipple]="true" class="social-icons">
+          <fa-icon [icon]="instagramIcon" size="2x"></fa-icon>
+        </a>
+      </div>
+      <button mat-icon-button color="accent" matTooltip="Switch to {{ isDarkOn ? 'light' : 'dark' }} mode" (click)="toggleTheme()" aria-label="Light/dark toggle button" id="toggle-btn">
+        <mat-icon>
+          {{ isDarkOn ? 'light_mode' : 'dark_mode' }}
+        </mat-icon>
+      </button>
     </div>
   </mat-toolbar>
 </header>

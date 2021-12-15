@@ -8,6 +8,10 @@
   }
 }
 
+#mobile {
+  display: none;
+}
+
 mat-toolbar {
   height: var(--header-height) !important;
 
@@ -21,7 +25,7 @@ mat-toolbar {
 
       #logo {
         cursor: pointer;
-        height: 175px;
+        height: calc(var(--header-height) + 73px);
         margin: 0 48px 0 -8px;
         padding-top: 18px;
       }
@@ -165,6 +169,37 @@ mat-toolbar {
 
       .mat-tab-label-content {
         font-size: 1.2vw !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $mobile-6) and (orientation: portrait) {
+  #desktop {
+    display: none !important;
+  }
+
+  #mobile {
+    display: block !important;
+
+    mat-toolbar {
+      height: var(--header-height-mobile) !important;
+
+      #header-content {
+        height: inherit;
+        overflow: hidden;
+        width: inherit;
+
+        #logo {
+          height: calc(var(--header-height-mobile) + 73px);
+          padding-top: 18px;
+        }
+
+        .social-icons {
+          margin: 0 12px -3px 12px !important;
+          min-width: fit-content !important;
+          padding: 0;
+        }
       }
     }
   }
