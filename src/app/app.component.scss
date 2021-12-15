@@ -1,3 +1,5 @@
+@use '@angular/material' as mat;
+
 #wrapper {
   height: 100%;
 }
@@ -9,6 +11,7 @@
   #background-area {
     background-attachment: fixed;
     background-image: url('../assets/images/Background.jpg');
+    background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     filter: brightness(0.8);
@@ -34,5 +37,40 @@
     top: var(--header-height);
     overflow-y: auto;
     width: 100vw;
+  }
+}
+
+#mobile-menu {
+  display: none;
+  height: inherit;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+
+  #menu-items {
+    height: inherit;
+    width: inherit;
+
+    .menu-buttons {
+      font-size: 3vh;
+      font-weight: bold;
+    }
+  }
+}
+
+@media (orientation: portrait) {
+  #background-area {
+    background-color: black !important;
+    background-image: url('../assets/images/Background_mobile.jpg') !important;
+    filter: brightness(0.9) !important;
+
+    &::before {
+      backdrop-filter: blur(9px) !important;
+    }
+
+    .dark-theme & {
+      filter: brightness(0.5) !important;
+    }
   }
 }

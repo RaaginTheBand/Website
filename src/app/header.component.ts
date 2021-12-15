@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { FaConfig } from '@fortawesome/angular-fontawesome';
 import { faFacebookSquare, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
-import { Tabs } from './core/models/tabs';
+import { tabs } from './core/constants/tabs';
 import { DarkModeService } from './core/services/dark-mode.service';
 
 @Component({
@@ -16,13 +16,8 @@ export class HeaderComponent implements OnInit {
   facebookIcon = faFacebookSquare;
   instagramIcon = faInstagramSquare;
   isDarkOn = false;
-  tabs: Tabs[] = [
-    { name: 'Home', route: '' },
-    { name: 'About', route: 'about' },
-    { name: 'Events', route: 'events' },
-    { name: 'Media', route: 'media' },
-    { name: 'Contact', route: 'contact' }
-  ];
+  tabs = tabs;
+  @Output() mobileMenuOpen = new EventEmitter<boolean>();
 
   constructor(private darkModeService: DarkModeService,
               private faConfig: FaConfig,
@@ -36,6 +31,10 @@ export class HeaderComponent implements OnInit {
         this.setCurrentTabIndex(event.url.substring(1));
       }
     });
+  }
+
+  openMobileMenu(): void {
+    this.mobileMenuOpen.emit(true);
   }
 
   selectTab(index: number): void {
