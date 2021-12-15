@@ -9,7 +9,7 @@
   <div id="mobile-menu" [ngStyle]="{ 'display': (isMobileMenuOpen) ? 'block' : 'none' }">
     <mat-grid-list cols="1" rowHeight="fit" id="menu-items">
       <mat-grid-tile colspan="1" *ngFor="let tab of tabs">
-        <button mat-button color="warn" class="menu-buttons" [ngStyle]="{ 'text-decoration': (currentPath === tab.route) ? 'underline' : '' }">
+        <button mat-button color="warn" class="menu-buttons" (click)="menuSelect(tab.route)" [ngStyle]="{ 'text-decoration': (currentPath === tab.route) ? 'underline' : '' }">
           {{ tab.name }}
         </button>
       </mat-grid-tile>

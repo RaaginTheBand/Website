@@ -35,6 +35,11 @@ export class AppComponent implements OnInit {
     this.isMobileMenuOpen = false;
   }
 
+  menuSelect(route: string): void {
+    this.router.navigate([route]);
+    this.close();
+  }
+
   open(event: boolean) {
     this.isMobileMenuOpen = true;
   }
