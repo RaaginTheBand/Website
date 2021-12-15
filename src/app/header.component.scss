@@ -73,62 +73,34 @@ mat-toolbar {
   }
 }
 
-@media screen and (max-width: $hd-desktop) {
+@media screen and (max-width: $desktop-6) {
   .mat-tab-label-content {
     font-size: 0.8vw !important;
   }
 }
 
-@media screen and (max-width: $sd-desktop) {
-  #header-content {
-    margin: 0 !important;
-
-    #logo {
-      margin: 0 32px 0 -6px !important;
-    }
-
-    .social-icons {
-      margin: 0 12px !important;
-    }
-
-    .mat-tab-label-content {
-      font-size: 0.9vw !important;
-    }
+@media screen and (max-width: $desktop-5) {
+  .mat-tab-label-content {
+    font-size: 0.9vw !important;
   }
 }
 
-@media screen and (max-width: $max-tablet-landscape) {
-  #header-content {
-    margin: 0 !important;
+@media screen and (max-width: $desktop-4) {
+  #logo {
+    margin: 0 32px 0 -8px !important;
+  }
 
-    #logo {
-      margin: 0 32px 0 -8px !important;
-    }
-
-    .social-icons {
-      margin: 0 12px !important;
-    }
-
-    .mat-tab-label-content {
-      font-size: 1vw !important;
-    }
+  .mat-tab-label-content {
+    font-size: 1vw !important;
   }
 }
 
-@media screen and (max-width: $mid-tablet-landscape) {
+@media screen and (max-width: $desktop-3) {
   #header-content {
-    margin: 0 !important;
+    margin: 0 24px !important;
 
     #logo {
       margin: 0 16px 0 -8px !important;
-    }
-
-    .social-icons {
-      margin: 0 12px !important;
-    }
-
-    #toggle-btn {
-      margin: 0 16px 8px 16px !important;
     }
 
     .mat-tab-label {
@@ -141,7 +113,7 @@ mat-toolbar {
   }
 }
 
-@media screen and (max-width: $min-tablet-landscape) {
+@media screen and (max-width: $desktop-2) {
   #header-content {
     margin: 0 !important;
 
@@ -149,8 +121,30 @@ mat-toolbar {
       margin: 0 8px 0 -8px !important;
     }
 
+    #toggle-btn {
+      margin: 0 12px 8px 8px !important;
+    }
+
+    .mat-tab-label {
+      min-width: 12vw !important;
+
+      .mat-tab-label-content {
+        font-size: 1.2vw !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $desktop-1) {
+  #header-content {
+    margin: 0 !important;
+
+    #logo {
+      margin: 0 4px 0 -8px !important;
+    }
+
     .social-icons {
-      margin: 0 12px !important;
+      margin: 0 10px !important;
 
       .small-icons {
         display: inline-block !important;
@@ -163,7 +157,7 @@ mat-toolbar {
     }
 
     #toggle-btn {
-      margin: 0 10px 8px 10px !important;
+      margin: 0 10px 8px 6px !important;
     }
 
     .mat-tab-label {
