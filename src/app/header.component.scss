@@ -76,12 +76,24 @@ mat-toolbar {
 }
 
 @media screen and (max-width: $sd-desktop) {
-  .mat-tab-label-content {
-    font-size: 0.9vw !important;
+  #header-content {
+    margin: 0 !important;
+
+    #logo {
+      margin: 0 32px 0 -6px !important;
+    }
+
+    .social-icons {
+      margin: 0 12px !important;
+    }
+
+    .mat-tab-label-content {
+      font-size: 0.9vw !important;
+    }
   }
 }
 
-@media screen and (max-width: $min-desktop) {
+@media screen and (max-width: $max-tablet) {
   #header-content {
     margin: 0 !important;
 
@@ -95,6 +107,58 @@ mat-toolbar {
 
     .mat-tab-label-content {
       font-size: 1vw !important;
+    }
+  }
+}
+
+@media screen and (max-width: $mid-tablet) {
+  #header-content {
+    margin: 0 !important;
+
+    #logo {
+      margin: 0 16px 0 -8px !important;
+    }
+
+    .social-icons {
+      margin: 0 12px !important;
+    }
+
+    #toggle-btn {
+      margin: 0 16px 8px 16px !important;
+    }
+
+    .mat-tab-label {
+      min-width: 12vw !important;
+
+      .mat-tab-label-content {
+        font-size: 1.1vw !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $min-tablet) {
+  #header-content {
+    margin: 0 !important;
+
+    #logo {
+      margin: 0 8px 0 -8px !important;
+    }
+
+    .social-icons {
+      margin: 0 12px !important;
+    }
+
+    #toggle-btn {
+      margin: 0 10px 8px 10px !important;
+    }
+
+    .mat-tab-label {
+      min-width: 12vw !important;
+
+      .mat-tab-label-content {
+        font-size: 1.2vw !important;
+      }
     }
   }
 }
