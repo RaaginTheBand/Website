@@ -36,3 +36,14 @@
     width: 100vw;
   }
 }
+
+@media (orientation: portrait) {
+  #background-area {
+    background-color: black !important;
+    background-image: url('../assets/images/Background_mobile.jpg') !important;
+
+    &::before {
+      backdrop-filter: blur(9px);
+    }
+  }
+}
