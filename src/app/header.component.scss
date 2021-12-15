@@ -1,3 +1,5 @@
+@import '../styles/media-breakpoints.scss';
+
 @mixin tab-theme($bg-color, $color) {
   .mat-tab-label-active {
     background-color: $bg-color !important;
@@ -51,6 +53,10 @@ mat-toolbar {
             .mat-tab-label {
               height: 100%;
               opacity: 1;
+
+              .mat-tab-label-content {
+                font-size: 0.7vw;
+              }
             }
           }
 
@@ -59,6 +65,36 @@ mat-toolbar {
           }
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: $hd-desktop) {
+  .mat-tab-label-content {
+    font-size: 0.8vw !important;
+  }
+}
+
+@media screen and (max-width: $sd-desktop) {
+  .mat-tab-label-content {
+    font-size: 0.9vw !important;
+  }
+}
+
+@media screen and (max-width: $min-desktop) {
+  #header-content {
+    margin: 0 !important;
+
+    #logo {
+      margin: 0 32px 0 -8px !important;
+    }
+
+    .social-icons {
+      margin: 0 12px !important;
+    }
+
+    .mat-tab-label-content {
+      font-size: 1vw !important;
     }
   }
 }
