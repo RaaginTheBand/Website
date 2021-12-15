@@ -47,6 +47,10 @@ mat-toolbar {
 
       #toggle-btn {
         margin: 0 36px 8px 36px;
+
+        #toggle-icon {
+          font-size: 3vh;
+        }
       }
 
       .mat-tab-group {
@@ -84,6 +88,10 @@ mat-toolbar {
 }
 
 @media screen and (max-width: $desktop-5) {
+  #toggle-icon {
+    font-size: 4vh !important;
+  }
+
   .mat-tab-label-content {
     font-size: 0.9vw !important;
   }
@@ -130,8 +138,6 @@ mat-toolbar {
     }
 
     .mat-tab-label {
-      min-width: 12vw !important;
-
       .mat-tab-label-content {
         font-size: 1.2vw !important;
       }
@@ -150,13 +156,13 @@ mat-toolbar {
     .social-icons {
       margin: 0 10px !important;
 
+      .large-icons {
+        display: none !important;
+      }
+
       .small-icons {
         display: inline-block !important;
         margin-bottom: -2px !important;
-      }
-
-      .large-icons {
-        display: none !important;
       }
     }
 
@@ -185,21 +191,76 @@ mat-toolbar {
     mat-toolbar {
       height: var(--header-height-mobile) !important;
 
-      #header-content {
-        height: inherit;
-        overflow: hidden;
-        width: inherit;
+      .mobile-icons {
+        font-size: 4vw !important;
+      }
 
-        #logo {
-          height: calc(var(--header-height-mobile) + 73px);
-          padding-top: 18px;
+      #logo {
+        height: calc(var(--header-height-mobile) + 73px) !important;
+        padding-top: 18px !important;
+      }
+
+      .social-icons {
+        margin: 0 12px -3px 12px !important;
+        min-width: fit-content !important;
+        padding: 0;
+
+        .large-icons {
+          display: inline-block !important;
         }
 
-        .social-icons {
-          margin: 0 12px -3px 12px !important;
-          min-width: fit-content !important;
-          padding: 0;
+        .small-icons {
+          display: none !important;
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $mobile-4) and (orientation: portrait) {
+  #mobile {
+    mat-toolbar {
+      .mobile-icons {
+        font-size: 5vw !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $mobile-3) and (orientation: portrait) {
+  #mobile {
+    mat-toolbar {
+      .mobile-icons {
+        font-size: 6vw !important;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $mobile-2) and (orientation: portrait) {
+  #mobile {
+    mat-toolbar {
+      .social-icons {
+        .large-icons {
+          display: none !important;
+        }
+
+        .small-icons {
+          display: inline-block !important;
+          margin-bottom: -2px !important;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $mobile-2) and (orientation: portrait) {
+  #mobile {
+    mat-toolbar {
+      padding: 0 6px !important;
+
+      .social-icons {
+        margin: 0 8px -3px 8px !important;
       }
     }
   }
