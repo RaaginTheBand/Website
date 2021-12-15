@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
   facebookIcon = faFacebookSquare;
   instagramIcon = faInstagramSquare;
   isDarkOn = false;
+  tabs = tabs;
 
   constructor(private darkModeService: DarkModeService,
               private faConfig: FaConfig,
@@ -32,11 +33,11 @@ export class HeaderComponent implements OnInit {
   }
 
   selectTab(index: number): void {
-    this.router.navigate([tabs[index].route]);
+    this.router.navigate([this.tabs[index].route]);
   }
 
   setCurrentTabIndex(path: string): void {
-    this.currentTabIndex = tabs.findIndex(tab => tab.route == path);
+    this.currentTabIndex = this.tabs.findIndex(tab => tab.route == path);
   }
 
   toggleTheme(): void {
