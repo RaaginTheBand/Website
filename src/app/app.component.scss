@@ -41,9 +41,14 @@
   #background-area {
     background-color: black !important;
     background-image: url('../assets/images/Background_mobile.jpg') !important;
+    filter: brightness(0.9) !important;
 
     &::before {
-      backdrop-filter: blur(9px);
+      backdrop-filter: blur(9px) !important;
+    }
+
+    .dark-theme & {
+      filter: brightness(0.5) !important;
     }
   }
 }
