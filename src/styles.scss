@@ -40,7 +40,6 @@ body {
   &:link, &:visited {
     background-color: transparent;
     color: mat.get-color-from-palette($light-primary, 'default');
-    filter: brightness(1.1);
 
     .dark-theme & {
       color: mat.get-color-from-palette($dark-tabs, 'default');
@@ -64,13 +63,14 @@ body {
 .overlay {
   background-color: $light-secondary-text;
   color: $light-primary-text;
-  margin: 5vh 0 3vh 10%;
+  margin: 6vh 0 3vh 10%;
   opacity: 0.8;
   width: 80vw;
 
   .dark-theme & {
     background-color: $dark-secondary-text;
     color: $dark-primary-text;
+    opacity: 0.9;
   }
 }
 
