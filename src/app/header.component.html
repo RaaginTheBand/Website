@@ -47,7 +47,7 @@
           <fa-icon [icon]="instagramIcon" size="2x" class="small-icons"></fa-icon>
         </a>
       </div>
-      <button mat-icon-button color="accent" matTooltip="Switch to {{ isDarkOn ? 'light' : 'dark' }} mode" (click)="toggleTheme()" aria-label="Light/dark toggle button" id="toggle-btn">
+      <button mat-icon-button color="accent" [disableRipple]="true" matTooltip="Switch to {{ isDarkOn ? 'light' : 'dark' }} mode" (click)="toggleTheme()" aria-label="Light/dark toggle button" id="toggle-btn">
         <mat-icon class="mobile-icons">
           {{ isDarkOn ? 'light_mode' : 'dark_mode' }}
         </mat-icon>
