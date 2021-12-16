@@ -5,7 +5,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { enableIndexedDbPersistence, getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { ServiceWorkerModule } from '@angular/service-worker';
+import { ServiceWorkerModule, SwRegistrationOptions } from '@angular/service-worker';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -37,12 +37,13 @@ import { environment } from '../environments/environment';
     MatTabsModule,
     MatToolbarModule,
     HomeModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: environment.production,
-      // Register the ServiceWorker as soon as the app is stable
-      // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
-    })
+    ServiceWorkerModule.register('ngsw-worker.js')
+  ],
+  providers: [
+    {
+      provide: SwRegistrationOptions,
+      useFactory: () => ({ enabled: environment.production, registrationStrategy: 'registerWhenStable:30000' })
+    }
   ],
   bootstrap: [AppComponent]
 })
