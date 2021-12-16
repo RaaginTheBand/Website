@@ -37,12 +37,12 @@ import { environment } from '../environments/environment';
     MatTabsModule,
     MatToolbarModule,
     HomeModule,
-    ServiceWorkerModule.register('./ngsw-worker.js')
+    ServiceWorkerModule.register('ngsw-worker.js')
   ],
   providers: [
     {
       provide: SwRegistrationOptions,
-      useFactory: () => ({ enabled: environment.production, scope: './', registrationStrategy: 'registerWhenStable:30000' })
+      useFactory: () => ({ enabled: environment.production, registrationStrategy: 'registerImmediately' })
     }
   ],
   bootstrap: [AppComponent]
