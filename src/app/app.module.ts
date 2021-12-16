@@ -42,7 +42,7 @@ import { environment } from '../environments/environment';
   providers: [
     {
       provide: SwRegistrationOptions,
-      useFactory: () => ({ enabled: environment.production, registrationStrategy: 'registerWhenStable:30000' })
+      useFactory: () => ({ enabled: environment.production, scope: './', registrationStrategy: 'registerWhenStable:30000' })
     }
   ],
   bootstrap: [AppComponent]
