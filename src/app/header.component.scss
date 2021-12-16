@@ -180,6 +180,45 @@ mat-toolbar {
   }
 }
 
+@media screen and (max-width: $mobile-6) {
+  mat-toolbar {
+    padding: 0 8px !important;
+
+    #header-content {
+      margin: 0 !important;
+
+      #logo {
+        margin-right: -8px !important;
+      }
+
+      .social-icons {
+        margin: 0 4px !important;
+
+        .large-icons {
+          display: none !important;
+        }
+
+        .small-icons {
+          display: inline-block !important;
+          margin-bottom: -2px !important;
+        }
+      }
+
+      #toggle-btn {
+        margin: 0 2px 8px 2px !important;
+      }
+
+      .mat-tab-label {
+        min-width: 10vw !important;
+
+        .mat-tab-label-content {
+          font-size: 1.3vw !important;
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: $mobile-6) and (orientation: portrait) {
   #desktop {
     display: none !important;
