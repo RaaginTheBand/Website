@@ -37,7 +37,7 @@ import { environment } from '../environments/environment';
     MatTabsModule,
     MatToolbarModule,
     HomeModule,
-    ServiceWorkerModule.register('ngsw-worker.js')
+    ServiceWorkerModule.register('./ngsw-worker.js')
   ],
   providers: [
     {
