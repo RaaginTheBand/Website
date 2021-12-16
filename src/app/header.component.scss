@@ -89,7 +89,7 @@ mat-toolbar {
 
 @media screen and (max-width: $desktop-5) {
   #toggle-icon {
-    font-size: 4vh !important;
+    font-size: 3.5vh !important;
   }
 
   .mat-tab-label-content {
@@ -99,24 +99,28 @@ mat-toolbar {
 
 @media screen and (max-width: $desktop-4) {
   #logo {
-    margin: 0 32px 0 -8px !important;
+    margin: 0 24px 0 -8px !important;
   }
 
-  .mat-tab-label-content {
-    font-size: 1vw !important;
+  .mat-tab-label {
+    min-width: 12vw !important;
+
+    .mat-tab-label-content {
+      font-size: 1vw !important;
+    }
   }
 }
 
 @media screen and (max-width: $desktop-3) {
   #header-content {
-    margin: 0 24px !important;
+    margin: 0 8px !important;
 
     #logo {
-      margin: 0 16px 0 -8px !important;
+      margin: 0 8px 0 -8px !important;
     }
 
     .mat-tab-label {
-      min-width: 12vw !important;
+      min-width: 11vw !important;
 
       .mat-tab-label-content {
         font-size: 1.1vw !important;
@@ -128,10 +132,6 @@ mat-toolbar {
 @media screen and (max-width: $desktop-2) {
   #header-content {
     margin: 0 !important;
-
-    #logo {
-      margin: 0 8px 0 -8px !important;
-    }
 
     #toggle-btn {
       margin: 0 12px 8px 8px !important;
