@@ -1,9 +1,27 @@
+@import '../../styles/media-breakpoints.scss';
+
 .social-icons {
-  // padding-right: 2vw;
   width: 100%;
+
+  .large-icons {
+    display: none;
+  }
+
+  .medium-icons {
+    display: none;
+  }
+
+  .small-icons {
+    display: none;
+  }
+
+  .x-small-icons {
+    display: none;
+  }
 }
 
 .social-text {
+  font-size: 1.3vw;
   font-weight: bold;
   padding-left: 4vw;
   width: 100%;
@@ -15,4 +33,44 @@
 
 #spacer {
   height: 2vh;
+}
+
+@media screen and (max-width: $desktop-6) {
+  .x-large-icons {
+    display: none !important;
+  }
+
+  .large-icons {
+    display: block !important;
+  }
+}
+
+@media screen and (max-width: $desktop-3) {
+  .large-icons {
+    display: none !important;
+  }
+
+  .medium-icons {
+    display: block !important;
+  }
+}
+
+@media screen and (max-width: $desktop-1) {
+  .medium-icons {
+    display: none !important;
+  }
+
+  .small-icons {
+    display: block !important;
+  }
+}
+
+@media screen and (max-width: $mobile-4) {
+  .small-icons {
+    display: none !important;
+  }
+
+  .x-small-icons {
+    display: block !important;
+  }
 }
