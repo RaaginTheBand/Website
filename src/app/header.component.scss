@@ -229,28 +229,34 @@ mat-toolbar {
 
     mat-toolbar {
       height: var(--header-height-mobile) !important;
+      padding: 0 4px !important;
 
-      .mobile-icons {
-        font-size: 4vw !important;
-      }
+      #header-content {
+        padding: 0 1vw !important;
 
-      #logo {
-        height: calc(var(--header-height-mobile) + 73px) !important;
-        padding-top: 18px !important;
-      }
-
-      .social-icons {
-        margin: 0 12px -3px 12px !important;
-        min-width: fit-content !important;
-        padding: 0;
-
-        .large-icons {
-          display: inline-block !important;
+        .mobile-icons {
+          font-size: 4vw !important;
         }
 
-        .small-icons {
-          display: none !important;
+        #logo {
+          height: calc(var(--header-height-mobile) + 73px) !important;
+          padding-top: 18px !important;
         }
+
+        .social-icons {
+          margin: 0 12px -3px 12px !important;
+          min-width: fit-content !important;
+          padding: 0;
+
+          .large-icons {
+            display: inline-block !important;
+          }
+
+          .small-icons {
+            display: none !important;
+          }
+        }
+
       }
     }
   }
@@ -259,8 +265,10 @@ mat-toolbar {
 @media screen and (max-width: $mobile-4) and (orientation: portrait) {
   #mobile {
     mat-toolbar {
-      .mobile-icons {
-        font-size: 5vw !important;
+      #header-content {
+        .mobile-icons {
+          font-size: 5vw !important;
+        }
       }
     }
   }
@@ -269,24 +277,9 @@ mat-toolbar {
 @media screen and (max-width: $mobile-3) and (orientation: portrait) {
   #mobile {
     mat-toolbar {
-      .mobile-icons {
-        font-size: 6vw !important;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: $mobile-2) and (orientation: portrait) {
-  #mobile {
-    mat-toolbar {
-      .social-icons {
-        .large-icons {
-          display: none !important;
-        }
-
-        .small-icons {
-          display: inline-block !important;
-          margin-bottom: -2px !important;
+      #header-content {
+        .mobile-icons {
+          font-size: 6vw !important;
         }
       }
     }
@@ -296,10 +289,29 @@ mat-toolbar {
 @media screen and (max-width: $mobile-2) and (orientation: portrait) {
   #mobile {
     mat-toolbar {
-      padding: 0 6px !important;
+      #header-content {
+        .social-icons {
+          .large-icons {
+            display: none !important;
+          }
 
-      .social-icons {
-        margin: 0 8px -3px 8px !important;
+          .small-icons {
+            display: inline-block !important;
+            margin-bottom: -2px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $mobile-1) and (orientation: portrait) {
+  #mobile {
+    mat-toolbar {
+      #header-content {
+        .social-icons {
+          margin: 0 8px -3px 8px !important;
+        }
       }
     }
   }
