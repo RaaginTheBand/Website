@@ -50,11 +50,17 @@
   z-index: 2;
 
   #menu-items {
-    height: inherit;
+    height: 90vh;
+    margin-top: 5vh;
     width: inherit;
 
     .menu-buttons {
       font-size: 3vh;
+      font-weight: bold;
+    }
+
+    #close-button {
+      font-size: 4vh;
       font-weight: bold;
     }
   }
