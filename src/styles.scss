@@ -74,7 +74,7 @@ body {
 .overlay {
   background-color: $light-secondary-text;
   color: $light-primary-text;
-  margin: 6vh 0 3vh 10%;
+  margin: 5vh 0 2vh 10vw;
   opacity: 0.8;
   width: 80vw;
 
@@ -97,4 +97,10 @@ body {
   font-size: 1.2vw;
   line-height: 1.2;
   white-space: pre-wrap;
+}
+
+@media screen and (max-width: $desktop-6) {
+  .overlay-headers {
+    font-size: 1.6vw;
+  }
 }
