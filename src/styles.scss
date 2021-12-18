@@ -104,3 +104,14 @@ body {
     font-size: 1.6vw;
   }
 }
+
+@media screen and (orientation: portrait) {
+  .overlay {
+    margin: 4vh 0 2vh 5vw;
+    width: 90vw;
+  }
+
+  .overlay-headers {
+    font-size: 2.6vw;
+  }
+}
