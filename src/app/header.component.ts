@@ -4,6 +4,7 @@ import { FaConfig } from '@fortawesome/angular-fontawesome';
 import { faFacebookSquare, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
 import { tabs } from './core/constants/tabs';
 import { DarkModeService } from './core/services/dark-mode.service';
+import { LocalStorageService } from './core/services/local-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -15,14 +16,17 @@ export class HeaderComponent implements OnInit {
   currentTabIndex: number = 0;
   facebookIcon = faFacebookSquare;
   instagramIcon = faInstagramSquare;
-  isDarkOn = false;
+  isDarkOn: boolean;
   tabs = tabs;
   @Output() mobileMenuOpen = new EventEmitter<boolean>();
 
   constructor(private darkModeService: DarkModeService,
+              private localStorageService: LocalStorageService,
               private faConfig: FaConfig,
               private router: Router) {
     this.faConfig.defaultPrefix = 'fab';
+    this.isDarkOn = (this.localStorageService.get('darkMode') !== null) ? this.localStorageService.get('darkMode') : false;
+    this.darkModeService.isDarkOn.next(this.isDarkOn);
   }
 
   ngOnInit(): void {
@@ -48,6 +52,7 @@ export class HeaderComponent implements OnInit {
   toggleTheme(): void {
     this.isDarkOn = !this.isDarkOn;
     this.darkModeService.isDarkOn.next(this.isDarkOn);
+    this.localStorageService.set('darkMode', this.isDarkOn);
   }
 
 }
