@@ -32,6 +32,11 @@ export class HeaderComponent implements OnInit {
       this.isDarkOn = (res !== undefined) ? res : false;
       this.darkModeService.isDarkOn.next(this.isDarkOn);
     });
+    this.storage.get<string>(this.storageKeys.spinnerColor, { type: 'string' }).subscribe((res) => {
+      if (res == undefined) {
+        this.storage.set(this.storageKeys.spinnerColor, this.darkModeService.spinnerLight, { type: 'string' }).subscribe(() => {});
+      }
+    });
   }
 
   ngOnInit(): void {
@@ -58,6 +63,8 @@ export class HeaderComponent implements OnInit {
     this.isDarkOn = !this.isDarkOn;
     this.darkModeService.isDarkOn.next(this.isDarkOn);
     this.storage.set(this.storageKeys.darkMode, this.isDarkOn, { type: 'boolean' }).subscribe(() => {});
+    const color = (this.isDarkOn) ? this.darkModeService.spinnerDark : this.darkModeService.spinnerLight;
+    this.storage.set(this.storageKeys.spinnerColor, color, { type: 'string' }).subscribe(() => {});
   }
 
 }

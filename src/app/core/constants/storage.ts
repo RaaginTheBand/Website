@@ -1,3 +1,4 @@
 export const storageKeys = {
-  darkMode: 'darkMode'
+  darkMode: 'darkMode',
+  spinnerColor: 'spinnerColor'
 };
