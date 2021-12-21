@@ -28,13 +28,13 @@ export class HeaderComponent implements OnInit {
               private router: Router,
               private storage: StorageMap) {
     this.faConfig.defaultPrefix = 'fab';
-    this.storage.get<boolean>(this.storageKeys.darkMode, { type: 'boolean' }).subscribe((res) => {
+    this.storage.get<boolean>(this.storageKeys.DARK_MODE, { type: 'boolean' }).subscribe((res) => {
       this.isDarkOn = (res !== undefined) ? res : false;
       this.darkModeService.isDarkOn.next(this.isDarkOn);
     });
-    this.storage.get<string>(this.storageKeys.spinnerColor, { type: 'string' }).subscribe((res) => {
+    this.storage.get<string>(this.storageKeys.SPINNER_COLOR, { type: 'string' }).subscribe((res) => {
       if (res == undefined) {
-        this.storage.set(this.storageKeys.spinnerColor, this.darkModeService.spinnerLight, { type: 'string' }).subscribe(() => {});
+        this.storage.set(this.storageKeys.SPINNER_COLOR, this.darkModeService.spinnerLight, { type: 'string' }).subscribe(() => {});
       }
     });
   }
@@ -62,9 +62,9 @@ export class HeaderComponent implements OnInit {
   toggleTheme(): void {
     this.isDarkOn = !this.isDarkOn;
     this.darkModeService.isDarkOn.next(this.isDarkOn);
-    this.storage.set(this.storageKeys.darkMode, this.isDarkOn, { type: 'boolean' }).subscribe(() => {});
+    this.storage.set(this.storageKeys.DARK_MODE, this.isDarkOn, { type: 'boolean' }).subscribe(() => {});
     const color = (this.isDarkOn) ? this.darkModeService.spinnerDark : this.darkModeService.spinnerLight;
-    this.storage.set(this.storageKeys.spinnerColor, color, { type: 'string' }).subscribe(() => {});
+    this.storage.set(this.storageKeys.SPINNER_COLOR, color, { type: 'string' }).subscribe(() => {});
   }
 
 }
