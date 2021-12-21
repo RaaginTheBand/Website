@@ -2,9 +2,11 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { FaConfig } from '@fortawesome/angular-fontawesome';
 import { faFacebookSquare, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
+import { StorageMap } from '@ngx-pwa/local-storage';
+
+import { storageKeys } from './core/constants/storage';
 import { tabs } from './core/constants/tabs';
 import { DarkModeService } from './core/services/dark-mode.service';
-import { LocalStorageService } from './core/services/local-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -16,17 +18,20 @@ export class HeaderComponent implements OnInit {
   currentTabIndex: number = 0;
   facebookIcon = faFacebookSquare;
   instagramIcon = faInstagramSquare;
-  isDarkOn: boolean;
+  isDarkOn = false;
+  storageKeys = storageKeys;
   tabs = tabs;
   @Output() mobileMenuOpen = new EventEmitter<boolean>();
 
   constructor(private darkModeService: DarkModeService,
-              private localStorageService: LocalStorageService,
               private faConfig: FaConfig,
-              private router: Router) {
+              private router: Router,
+              private storage: StorageMap) {
     this.faConfig.defaultPrefix = 'fab';
-    this.isDarkOn = (this.localStorageService.get('darkMode') !== null) ? this.localStorageService.get('darkMode') : false;
-    this.darkModeService.isDarkOn.next(this.isDarkOn);
+    this.storage.get<boolean>(this.storageKeys.darkMode, { type: 'boolean' }).subscribe((res) => {
+      this.isDarkOn = (res !== undefined) ? res : false;
+      this.darkModeService.isDarkOn.next(this.isDarkOn);
+    });
   }
 
   ngOnInit(): void {
@@ -52,7 +57,7 @@ export class HeaderComponent implements OnInit {
   toggleTheme(): void {
     this.isDarkOn = !this.isDarkOn;
     this.darkModeService.isDarkOn.next(this.isDarkOn);
-    this.localStorageService.set('darkMode', this.isDarkOn);
+    this.storage.set(this.storageKeys.darkMode, this.isDarkOn, { type: 'boolean' }).subscribe(() => {});
   }
 
 }
