@@ -2,9 +2,11 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { FaConfig } from '@fortawesome/angular-fontawesome';
 import { faFacebookSquare, faInstagramSquare } from '@fortawesome/free-brands-svg-icons';
+import { StorageMap } from '@ngx-pwa/local-storage';
+
+import { storageKeys } from './core/constants/storage';
 import { tabs } from './core/constants/tabs';
 import { DarkModeService } from './core/services/dark-mode.service';
-import { LocalStorageService } from './core/services/local-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -16,17 +18,24 @@ export class HeaderComponent implements OnInit {
   currentTabIndex: number = 0;
   facebookIcon = faFacebookSquare;
   instagramIcon = faInstagramSquare;
-  isDarkOn: boolean;
+  isDarkOn = false;
   tabs = tabs;
   @Output() mobileMenuOpen = new EventEmitter<boolean>();
 
   constructor(private darkModeService: DarkModeService,
-              private localStorageService: LocalStorageService,
               private faConfig: FaConfig,
-              private router: Router) {
+              private router: Router,
+              private storage: StorageMap) {
     this.faConfig.defaultPrefix = 'fab';
-    this.isDarkOn = (this.localStorageService.get('darkMode') !== null) ? this.localStorageService.get('darkMode') : false;
-    this.darkModeService.isDarkOn.next(this.isDarkOn);
+    this.storage.get<boolean>(storageKeys.DARK_MODE, { type: 'boolean' }).subscribe((res) => {
+      this.isDarkOn = (res !== undefined) ? res : false;
+      this.darkModeService.isDarkOn.next(this.isDarkOn);
+    });
+    this.storage.get<string>(storageKeys.SPINNER_COLOR, { type: 'string' }).subscribe((res) => {
+      if (res == undefined) {
+        this.storage.set(storageKeys.SPINNER_COLOR, this.darkModeService.spinnerLight, { type: 'string' }).subscribe(() => {});
+      }
+    });
   }
 
   ngOnInit(): void {
@@ -42,17 +51,19 @@ export class HeaderComponent implements OnInit {
   }
 
   selectTab(index: number): void {
-    this.router.navigate([this.tabs[index].route]);
+    this.router.navigate([tabs[index].route]);
   }
 
   setCurrentTabIndex(path: string): void {
-    this.currentTabIndex = this.tabs.findIndex(tab => tab.route == path);
+    this.currentTabIndex = tabs.findIndex(tab => tab.route == path);
   }
 
   toggleTheme(): void {
     this.isDarkOn = !this.isDarkOn;
     this.darkModeService.isDarkOn.next(this.isDarkOn);
-    this.localStorageService.set('darkMode', this.isDarkOn);
+    this.storage.set(storageKeys.DARK_MODE, this.isDarkOn, { type: 'boolean' }).subscribe(() => {});
+    const color = (this.isDarkOn) ? this.darkModeService.spinnerDark : this.darkModeService.spinnerLight;
+    this.storage.set(storageKeys.SPINNER_COLOR, color, { type: 'string' }).subscribe(() => {});
   }
 
 }

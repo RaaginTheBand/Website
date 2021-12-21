@@ -1,11 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FaConfig } from '@fortawesome/angular-fontawesome';
 import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { StorageMap } from '@ngx-pwa/local-storage';
 import { ReplaySubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
+import { storageKeys } from '../core/constants/storage';
 import { Contact } from '../core/models/contact';
-import { DarkModeService } from '../core/services/dark-mode.service';
 import { FirestoreService } from '../core/services/firestore.service';
 
 @Component({
@@ -22,14 +23,18 @@ export class ContactComponent implements OnInit, OnDestroy {
   isLoaded = false;
   private unsubscribe: ReplaySubject<boolean> = new ReplaySubject(1);
 
-  constructor(private darkmodeService: DarkModeService,
-              private faConfig: FaConfig,
-              private firestoreService: FirestoreService) {
+  constructor(private faConfig: FaConfig,
+              private firestoreService: FirestoreService,
+              private storage: StorageMap) {
     this.faConfig.defaultPrefix = 'fab';
   }
 
   ngOnInit(): void {
-    this.darkmodeService.isDarkOn.pipe(takeUntil(this.unsubscribe)).subscribe(res => this.color = (res) ? this.darkmodeService.spinnerDark : this.darkmodeService.spinnerLight);
+    this.storage.watch(storageKeys.SPINNER_COLOR, { type: 'string' }).subscribe(val => {
+      if (val) {
+        this.color = val;
+      }
+    });
     this.firestoreService.getData<Contact>('contact', 'default').pipe(takeUntil(this.unsubscribe)).subscribe(res => {
       if (res) {
         this.content = res;
