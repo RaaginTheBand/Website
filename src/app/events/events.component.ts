@@ -1,9 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { StorageMap } from '@ngx-pwa/local-storage';
 import { ReplaySubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
+import { storageKeys } from '../core/constants/storage';
 import { Past, Upcoming } from '../core/models/events';
-import { DarkModeService } from '../core/services/dark-mode.service';
 import { FirestoreService } from '../core/services/firestore.service';
 
 @Component({
@@ -20,11 +21,15 @@ export class EventsComponent implements OnInit, OnDestroy {
   private unsubscribe: ReplaySubject<boolean> = new ReplaySubject(1);
   upcomingData: Upcoming = {} as Upcoming;
 
-  constructor(private darkModeService: DarkModeService,
-              private firestoreService: FirestoreService) { }
+  constructor(private firestoreService: FirestoreService,
+              private storage: StorageMap) { }
 
   ngOnInit(): void {
-    this.darkModeService.isDarkOn.pipe(takeUntil(this.unsubscribe)).subscribe(res => this.color = (res) ? this.darkModeService.spinnerDark : this.darkModeService.spinnerLight);
+    this.storage.watch(storageKeys.SPINNER_COLOR, { type: 'string' }).subscribe(val => {
+      if (val) {
+        this.color = val;
+      }
+    });
     this.firestoreService.getData<Upcoming>('events', 'upcoming').pipe(takeUntil(this.unsubscribe)).subscribe(res => {
       if (res) {
         this.upcomingData = res;

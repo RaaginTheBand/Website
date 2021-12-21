@@ -1,9 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { StorageMap } from '@ngx-pwa/local-storage';
 import { EMPTY, ReplaySubject } from 'rxjs';
 import { concatMap, takeUntil } from 'rxjs/operators';
 
+
+import { storageKeys } from '../core/constants/storage';
 import { Home } from '../core/models/home';
-import { DarkModeService } from '../core/services/dark-mode.service';
 import { FirestoreService } from '../core/services/firestore.service';
 
 @Component({
@@ -18,11 +20,15 @@ export class HomeComponent implements OnInit, OnDestroy {
   isLoaded = false;
   private unsubscribe: ReplaySubject<boolean> = new ReplaySubject(1);
 
-  constructor(private darkmodeService: DarkModeService,
-              private firestoreService: FirestoreService) { }
+  constructor(private firestoreService: FirestoreService,
+              private storage: StorageMap) { }
 
   ngOnInit(): void {
-    this.darkmodeService.isDarkOn.pipe(takeUntil(this.unsubscribe)).subscribe(res => this.color = (res) ? this.darkmodeService.spinnerDark : this.darkmodeService.spinnerLight);
+    this.storage.watch(storageKeys.SPINNER_COLOR, { type: 'string' }).subscribe(val => {
+      if (val) {
+        this.color = val;
+      }
+    });
     this.firestoreService.getData<Home>('home', 'promo').pipe(concatMap(doc => doc === null ? EMPTY : this.firestoreService.getData<Home>('home', 'default')), takeUntil(this.unsubscribe)).subscribe(res => {
       if (res) {
         this.content = res;
