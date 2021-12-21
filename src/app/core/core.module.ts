@@ -2,7 +2,6 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DarkModeService } from './services/dark-mode.service';
 import { FirestoreService } from './services/firestore.service';
-import { LocalStorageService } from './services/local-storage.service';
 
 
 @NgModule({
@@ -11,8 +10,7 @@ import { LocalStorageService } from './services/local-storage.service';
   ],
   providers: [
     DarkModeService,
-    FirestoreService,
-    LocalStorageService
+    FirestoreService
   ]
 })
 export class CoreModule {
