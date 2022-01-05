@@ -25,15 +25,15 @@ mat-toolbar {
 
       #logo {
         cursor: pointer;
-        height: calc(var(--header-height) + 73px);
+        height: calc(var(--header-height) + 5vh);
         margin: 0 48px 0 -8px;
-        padding-top: 18px;
+        padding-top: 2vh;
       }
 
       .social-icons {
         margin: 0 16px;
         min-width: fit-content;
-        padding: 0;
+        padding: 1vh 0 0 0;
 
         .small-icons {
           display: none;
@@ -46,7 +46,7 @@ mat-toolbar {
       }
 
       #toggle-btn {
-        margin: 0 36px 8px 36px;
+        margin: 0 36px;
 
         #toggle-icon {
           font-size: 3vh;
@@ -116,7 +116,7 @@ mat-toolbar {
     margin: 0 8px !important;
 
     #logo {
-      margin: 0 8px 0 -8px !important;
+      margin: 0 8px 0 2px !important;
     }
 
     .mat-tab-label {
@@ -134,7 +134,8 @@ mat-toolbar {
     margin: 0 !important;
 
     #toggle-btn {
-      margin: 0 12px 8px 8px !important;
+      margin-left: 8px !important;
+      margin-right: 12px !important;
     }
 
     .mat-tab-label {
@@ -150,7 +151,7 @@ mat-toolbar {
     margin: 0 !important;
 
     #logo {
-      margin: 0 4px 0 -8px !important;
+      margin-right: 4px !important;
     }
 
     .social-icons {
@@ -167,7 +168,9 @@ mat-toolbar {
     }
 
     #toggle-btn {
-      margin: 0 10px 8px 6px !important;
+      margin-bottom: 4px !important;
+      margin-left: 6px !important;
+      margin-right: 10px !important;
     }
 
     .mat-tab-label {
@@ -188,7 +191,7 @@ mat-toolbar {
       margin: 0 !important;
 
       #logo {
-        margin-right: -8px !important;
+        margin-right: -4px !important;
       }
 
       .social-icons {
@@ -205,7 +208,7 @@ mat-toolbar {
       }
 
       #toggle-btn {
-        margin: 0 1vw 8px 1vw !important;
+        margin: 0 1vw 4px 1vw !important;
 
         #toggle-icon {
           font-size: 3.5vw !important;
@@ -243,8 +246,8 @@ mat-toolbar {
         }
 
         #logo {
-          height: calc(var(--header-height-mobile) + 73px) !important;
-          padding-top: 18px !important;
+          height: calc(var(--header-height-mobile) + 5vh) !important;
+          padding-top: 2vh !important;
         }
 
         .social-icons {

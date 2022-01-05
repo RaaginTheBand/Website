@@ -17,6 +17,7 @@
     background-size: cover;
     filter: brightness(0.8);
     height: inherit;
+    padding-top: 1px;
     z-index: -1;
 
     &::before {
