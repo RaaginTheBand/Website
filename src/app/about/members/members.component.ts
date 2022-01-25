@@ -12,13 +12,20 @@ export class MembersComponent implements OnChanges {
   @Input('spinnerColor') color = '';
   @Input('data') content: Members = {} as Members;
   @Input() isLoaded = false;
-  names: string[] = [];
 
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['content']) {
-      this.names = Object.keys(this.content).sort();
+    if (changes['content'] && this.content.lineup) {
+      this.content.lineup.sort((a, b) => {
+        if (a.name < b.name) {
+          return -1;
+        } else if (a.name > b.name) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
     }
   }
 
