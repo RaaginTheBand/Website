@@ -5,11 +5,13 @@ export interface History {
 }
 
 export interface Members {
-  [name: string]: MemberInfo;
+  lineup: MemberInfo[];
+  title: string;
 }
 
 interface MemberInfo {
   description: string;
   imageUrl: string;
+  name: string;
   role: string;
 }
