@@ -7,9 +7,11 @@
     </ng-template>
     <ng-template #loaded>
       <mat-grid-tile colspan="6" rowspan="2">
-        <h2 class="overlay-headers">Photos</h2>
+        <h2 class="overlay-headers">
+          {{ content?.title }}
+        </h2>
       </mat-grid-tile>
-      <ng-container *ngFor="let photo of content">
+      <ng-container *ngFor="let photo of content.photos">
         <mat-grid-tile colspan="2" rowspan="8">
           <div fxLayout="column" fxLayoutAlign="space-around center" class="wrapper">
             <div fxFlex="1 1 auto" class="image-wrapper">
