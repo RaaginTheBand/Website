@@ -9,36 +9,38 @@
     <!-- Loaded content -->
     <ng-template #loaded>
       <mat-grid-tile colspan="6" rowspan="2">
-        <h2 class="overlay-headers">Upcoming Events</h2>
+        <h2 class="overlay-headers">{{ content.title }}</h2>
       </mat-grid-tile>
       <!-- Upcoming event -->
       <ng-template [ngIf]="isEvent" [ngIfElse]="noEvent">
-        <mat-grid-tile colspan="4" rowspan="9">
-          <div class="image-wrapper">
-            <img class="image" [src]="content?.imageUrl" alt="placeholder image">
-          </div>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="2" rowspan="1">
-          <h3 class="standard-text event-info">{{ content?.name }}</h3>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="2" rowspan="1" *ngIf="content?.ticketUrl">
-          <p class="event-info standard-text">
-            Tickets: <a [href]="content?.ticketUrl" target="_blank" rel="noopener noreferrer" class="links">{{ content?.ticketUrl }}</a>
-          </p>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="2" rowspan="1">
-          <p class="standard-text event-info">{{ content?.dateTime!.toDate() | date:'MMMM d, y, h:mm a' }}</p>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="2" rowspan="2">
-          <a [href]="content?.location!.mapUrl" target="_blank" rel="noopener noreferrer" class="event-info links standard-text">
-            <p class="standard-text">{{ content?.location!.name }}</p>
-            <p class="standard-text">{{ content?.location!.line1 }}</p>
-            <p class="standard-text">{{ content?.location!.line2 }}</p>
-          </a>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="2" rowspan="4">
-          <div [innerHtml]="content?.description" class="standard-text event-info" id="upcoming-text"></div>
-        </mat-grid-tile>
+        <ng-container *ngFor="let event of content.events">
+          <mat-grid-tile colspan="4" rowspan="9">
+            <div class="image-wrapper">
+              <img class="image" [src]="event?.imageUrl" alt="placeholder image">
+            </div>
+          </mat-grid-tile>
+          <mat-grid-tile colspan="2" rowspan="1">
+            <h3 class="standard-text event-info">{{ event?.name }}</h3>
+          </mat-grid-tile>
+          <mat-grid-tile colspan="2" rowspan="1" *ngIf="event?.ticketUrl">
+            <p class="event-info standard-text">
+              Tickets: <a [href]="event?.ticketUrl" target="_blank" rel="noopener noreferrer" class="links">{{ event?.ticketUrl }}</a>
+            </p>
+          </mat-grid-tile>
+          <mat-grid-tile colspan="2" rowspan="1">
+            <p class="standard-text event-info">{{ event?.dateTime!.toDate() | date:'MMMM d, y, h:mm a' }}</p>
+          </mat-grid-tile>
+          <mat-grid-tile colspan="2" rowspan="2">
+            <a [href]="event?.location!.mapUrl" target="_blank" rel="noopener noreferrer" class="event-info links standard-text">
+              <p class="standard-text">{{ event?.location!.name }}</p>
+              <p class="standard-text">{{ event?.location!.line1 }}</p>
+              <p class="standard-text">{{ event?.location!.line2 }}</p>
+            </a>
+          </mat-grid-tile>
+          <mat-grid-tile colspan="2" rowspan="4">
+            <div [innerHtml]="event?.description" class="standard-text event-info" id="upcoming-text"></div>
+          </mat-grid-tile>
+        </ng-container>
       </ng-template>
       <!-- No upcoming event -->
       <ng-template #noEvent>

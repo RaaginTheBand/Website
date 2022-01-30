@@ -10,7 +10,7 @@ import { Past } from '../../core/models/events';
 export class PastComponent {
 
   @Input('spinnerColor') color = '';
-  @Input('data') content: Past[] = [];
+  @Input('data') content: Past = {} as Past;
   @Input() isLoaded = false;
 
   constructor() { }

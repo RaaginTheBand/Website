@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 import { Upcoming } from '../../core/models/events';
 
@@ -7,7 +7,7 @@ import { Upcoming } from '../../core/models/events';
   templateUrl: './upcoming.component.html',
   styleUrls: ['./upcoming.component.scss']
 })
-export class UpcomingComponent implements OnInit {
+export class UpcomingComponent implements OnChanges {
 
   @Input('spinnerColor') color = '';
   @Input('data') content: Upcoming = {} as Upcoming;
@@ -16,10 +16,8 @@ export class UpcomingComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-    if (Object.keys(this.content).length == 0) {
-      this.isEvent = false;
-    }
+  ngOnChanges(changes: SimpleChanges): void {
+    this.isEvent = Boolean(changes['content'] && this.content.title);
   }
 
 }
