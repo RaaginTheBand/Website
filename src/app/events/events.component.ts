@@ -17,7 +17,7 @@ export class EventsComponent implements OnInit, OnDestroy {
   color = '';
   isPastLoaded = false;
   isUpcomingLoaded = false;
-  pastData: Past[] = [];
+  pastData: Past = {} as Past;
   private unsubscribe: ReplaySubject<boolean> = new ReplaySubject(1);
   upcomingData: Upcoming = {} as Upcoming;
 
@@ -36,9 +36,9 @@ export class EventsComponent implements OnInit, OnDestroy {
         this.isUpcomingLoaded = true;
       }
     });
-    this.firestoreService.getData<{events: Past[]}>('events', 'past').pipe(takeUntil(this.unsubscribe)).subscribe(res => {
+    this.firestoreService.getData<Past>('events', 'past').pipe(takeUntil(this.unsubscribe)).subscribe(res => {
       if (res) {
-        this.pastData = res.events;
+        this.pastData = res;
         this.isPastLoaded = true;
       }
     });
