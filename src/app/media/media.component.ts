@@ -17,9 +17,9 @@ export class MediaComponent implements OnInit, OnDestroy {
   color = '';
   isPhotosLoaded = false;
   isVideosLoaded = false;
-  photosData: Photo[] = [];
+  photosData: Photo = {} as Photo;
   private unsubscribe: ReplaySubject<boolean> = new ReplaySubject(1);
-  videosData: Video[] = [];
+  videosData: Video = {} as Video;
 
   constructor(private firestoreService: FirestoreService,
               private storage: StorageMap) { }
@@ -30,15 +30,15 @@ export class MediaComponent implements OnInit, OnDestroy {
         this.color = val;
       }
     });
-    this.firestoreService.getData<{photos: Photo[]}>('media', 'photos').pipe(takeUntil(this.unsubscribe)).subscribe(res => {
+    this.firestoreService.getData<Photo>('media', 'photos').pipe(takeUntil(this.unsubscribe)).subscribe(res => {
       if (res) {
-        this.photosData = res.photos;
+        this.photosData = res;
         this.isPhotosLoaded = true;
       }
     });
-    this.firestoreService.getData<{videos: Video[]}>('media', 'videos').pipe(takeUntil(this.unsubscribe)).subscribe(res => {
+    this.firestoreService.getData<Video>('media', 'videos').pipe(takeUntil(this.unsubscribe)).subscribe(res => {
       if (res) {
-        this.videosData = res.videos;
+        this.videosData = res;
         this.isVideosLoaded = true;
       }
     });

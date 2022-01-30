@@ -10,7 +10,7 @@ import { Photo } from '../../core/models/media';
 export class PhotosComponent {
 
   @Input('spinnerColor') color = '';
-  @Input('data') content: Photo[] = [];
+  @Input('data') content: Photo = {} as Photo;
   @Input() isLoaded = false;
 
   constructor() { }

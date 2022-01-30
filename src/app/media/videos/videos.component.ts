@@ -9,7 +9,7 @@ import { Video } from '../../core/models/media';
 export class VideosComponent {
 
   @Input('spinnerColor') color = '';
-  @Input('data') content: Video[] = [];
+  @Input('data') content: Video = {} as Video;
   @Input() isLoaded = false;
 
   constructor() { }
