@@ -9,6 +9,7 @@ import { takeUntil } from 'rxjs/operators';
 import { storageKeys } from '../core/constants/storage';
 import { Contact } from '../core/models/contact';
 import { DarkModeService } from '../core/services/dark-mode.service';
+import { EmailService } from '../core/services/email.service';
 import { FirestoreService } from '../core/services/firestore.service';
 
 @Component({
@@ -28,6 +29,7 @@ export class ContactComponent implements OnInit, OnDestroy {
   private unsubscribe: ReplaySubject<boolean> = new ReplaySubject(1);
 
   constructor(private darkModeService: DarkModeService,
+              private emailService: EmailService,
               private faConfig: FaConfig,
               private firestoreService: FirestoreService,
               private form: FormBuilder,
@@ -59,7 +61,10 @@ export class ContactComponent implements OnInit, OnDestroy {
     });
   }
 
-  send(): void {}
+  send(): void {
+    const info = this.formData.value;
+    this.emailService.send(info.email, info.name, info.text);
+  }
 
   ngOnDestroy(): void {
     this.unsubscribe.next(true);
