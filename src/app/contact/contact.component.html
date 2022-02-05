@@ -18,7 +18,7 @@
         </p>
       </mat-grid-tile>
       <!-- Email form -->
-      <form [formGroup]="formData" (ngSubmit)="send()" novalidate>
+      <form [formGroup]="formData" (ngSubmit)="send()" method="post" novalidate>
         <mat-grid-tile colspan="5" rowspan="1">
           <mat-form-field appearance="standard" [color]="(isDarkOn) ? 'warn' : 'primary'" class="form-input">
             <input matInput placeholder="Name" formControlName="name" type="text">

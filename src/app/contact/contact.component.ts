@@ -63,7 +63,19 @@ export class ContactComponent implements OnInit, OnDestroy {
 
   send(): void {
     const info = this.formData.value;
-    this.emailService.send(info.email, info.name, info.text);
+    if (info.email && info.text) {
+      this.emailService.send(info.email, info.text, info.name);
+      this.emailService.emailSent.pipe(takeUntil(this.unsubscribe)).subscribe(val => {
+        if (val) {
+          this.formData.reset();
+          alert('Your message has been sent!');
+        } else {
+          alert('Unfortunately, your message could not be sent at this time. Please try again later or email raagintheband@gmail.com directly.');
+        }
+      });
+    } else {
+      alert('Please enter your email address and message.');
+    }
   }
 
   ngOnDestroy(): void {
