@@ -17,6 +17,27 @@
           <a href="mailto:raagintheband@gmail.com" target="_blank" rel="noopener noreferrer" class="links">raagintheband@gmail.com</a>
         </p>
       </mat-grid-tile>
+      <!-- Email form -->
+      <form [formGroup]="formData" (ngSubmit)="send()" method="post" novalidate>
+        <mat-grid-tile colspan="5" rowspan="1">
+          <mat-form-field appearance="standard" [color]="(isDarkOn) ? 'warn' : 'primary'" class="form-input">
+            <input matInput placeholder="Name" formControlName="name" type="text">
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="5" rowspan="1">
+          <mat-form-field appearance="standard" [color]="(isDarkOn) ? 'warn' : 'primary'"class="form-input">
+            <input matInput placeholder="Email" formControlName="email" type="email" required email>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="5" rowspan="2">
+          <mat-form-field appearance="standard" [color]="(isDarkOn) ? 'warn' : 'primary'"class="form-input">
+            <textarea matInput placeholder="Message" formControlName="text" rows="4" required></textarea>
+          </mat-form-field>
+        </mat-grid-tile>
+        <mat-grid-tile colspan="5" rowspan="1">
+          <button mat-raised-button type="submit" [color]="(isDarkOn) ? 'warn' : 'primary'">Submit</button>
+        </mat-grid-tile>
+      </form>
       <mat-grid-tile colspan="5" rowspan="1">
         <hr class="dividers">
       </mat-grid-tile>
