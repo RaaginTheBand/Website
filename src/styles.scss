@@ -86,7 +86,9 @@ body {
 }
 
 .overlay-headers {
-  font-size: 1.5vw;
+  font-size: 1.7vw;
+  margin: 2vh 2vw;
+  padding: 2vh 0;
 }
 
 .spacer {
@@ -104,13 +106,8 @@ body {
 .standard-text {
   font-size: 1.5vw;
   line-height: 1.2;
+  margin: 0 2vw;
   white-space: pre-wrap;
-}
-
-@media screen and (max-width: $desktop-6) {
-  .overlay-headers {
-    font-size: 1.7vw;
-  }
 }
 
 @media screen and (orientation: portrait) {

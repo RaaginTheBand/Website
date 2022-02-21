@@ -1,3 +1,19 @@
-.history-text {
-  padding: 0 16px;
+#history-text {
+  max-width: 50%;
+}
+
+#history-pic {
+  margin-bottom: 2vh;
+  margin-left: 2vw;
+}
+
+@media screen and (orientation: portrait) {
+  #history-text {
+    max-width: 90% !important;
+  }
+
+  #history-pic {
+    margin: 2vh auto !important;
+    max-width: 90%;
+  }
 }

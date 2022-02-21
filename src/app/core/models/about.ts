@@ -1,7 +1,7 @@
 export interface History {
   imageUrl: string;
-  text1: string;
-  text2: string;
+  text: string;
+  title: string;
 }
 
 export interface Members {
