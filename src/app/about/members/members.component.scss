@@ -1,21 +1,43 @@
-.member-headers {
-  width: 100%;
+.member-group {
+  max-height: 50vh;
+  margin: 0 2vw;
+
+  .member-pic-wrapper {
+    max-width: 30%;
+
+    .member-pic {
+      margin: 0 auto;
+    }
+  }
+
+  .text-wrapper {
+    max-width: 70%;
+
+    .member-header {
+      margin: 0 2vw;
+      width: 90%;
+    }
+
+    .left-headers {
+      text-align: end;
+    }
+
+    .right-headers {
+      text-align: start;
+    }
+
+    .left-texts {
+      margin-left: 10%;
+      text-align: end;
+    }
+
+    .right-texts {
+      margin-right: 10%;
+      text-align: start;
+    }
+  }
 }
 
-.left-headers {
-  text-align: end;
-}
-
-.right-headers {
-  text-align: start;
-}
-
-.left-texts {
-  margin-left: 10%;
-  text-align: end;
-}
-
-.right-texts {
-  margin-right: 10%;
-  text-align: start;
+#last-group {
+  margin-bottom: 2vh;
 }

@@ -1,37 +1,26 @@
 <div class="outer-margins overlay">
-  <mat-grid-list cols="6" rowHeight="3:1">
-    <ng-template [ngIf]="!isLoaded" [ngIfElse]="loaded">
-      <mat-grid-tile colspan="6" rowspan="7">
-        <app-radar-spinner [animationDuration]="1500" [size]="80" [color]="color" class="spinner"></app-radar-spinner>
-      </mat-grid-tile>
-    </ng-template>
-    <ng-template #loaded>
-      <mat-grid-tile colspan="6" rowspan="2">
-        <h2 class="overlay-headers">{{ content?.title }}</h2>
-      </mat-grid-tile>
-      <ng-container *ngFor="let member of content?.lineup; last as isLast; even as isEven; odd as isOdd">
-        <mat-grid-tile colspan="2" rowspan="4" *ngIf="isEven">
-          <div class="image-wrapper">
-            <img class="image" [src]="member?.imageUrl" [alt]="member.name">
+  <ng-template [ngIf]="!isLoaded" [ngIfElse]="loaded" class="spinner-wrapper">
+    <app-radar-spinner [animationDuration]="1500" [size]="80" [color]="color" class="spinner"></app-radar-spinner>
+  </ng-template>
+  <ng-template #loaded>
+    <div fxLayout="column wrap" fxLayoutAlign="space-around center" fxLayoutGap="2vh">
+      <h2 class="overlay-headers">
+        {{ content?.title }}
+      </h2>
+      <div class="member-group" [id]="(isLast) ? 'last-group' : ''" fxLayout="column wrap" fxLayoutAlign="space-around center" fxLayoutGap="2vh" *ngFor="let member of content?.lineup; last as isLast; even as isEven; odd as isOdd">
+        <div [fxLayout]="(isEven) ? 'row' : 'row-reverse'" fxLayoutAlign="space-around center" fxLayoutGap="2vw">
+          <div class="image-wrapper member-pic-wrapper">
+            <img class="image member-pic" [src]="member?.imageUrl" [alt]="member.name">
           </div>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="4" rowspan="1">
-          <h3 class="header-text member-headers" [ngClass]="{ 'left-headers': isOdd, 'right-headers': isEven }">
-            {{ member.name + ' - ' + member.role }}
-          </h3>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="2" rowspan="4" *ngIf="isOdd">
-          <div class="image-wrapper">
-            <img class="image" [src]="member.imageUrl" [alt]="member.name">
+          <div class="text-wrapper" fxLayout="column wrap" [fxLayoutAlign]="(isEven) ? 'space-around start' : 'space-around end'" fxLayoutGap="2vh">
+            <div class="header-text member-header" [ngClass]="{ 'left-texts': isOdd, 'right-texts': isEven }">
+              {{member.name + ' - ' + member.role}}
+            </div>
+            <div class="standard-text" [ngClass]="{ 'left-texts': isOdd, 'right-texts': isEven }" [innerText]="member.description"></div>
           </div>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="4" rowspan="3">
-          <div class="standard-text" [ngClass]="{ 'left-texts': isOdd, 'right-texts': isEven }" [innerText]="member.description"></div>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="6" rowspan="1" *ngIf="!isLast">
-          <hr class="dividers">
-        </mat-grid-tile>
-      </ng-container>
-    </ng-template>
-  </mat-grid-list>
+        </div>
+        <hr class="dividers" *ngIf="!isLast">
+      </div>
+    </div>
+  </ng-template>
 </div>
