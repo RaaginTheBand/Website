@@ -93,8 +93,12 @@ body {
   height: 1vh;
 }
 
-.spinner {
-  filter: brightness(1.2);
+.spinner-wrapper {
+  height: 75vh;
+
+  .spinner {
+    filter: brightness(1.2);
+  }
 }
 
 .standard-text {
