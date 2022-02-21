@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { LayoutModule } from '@angular/cdk/layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
@@ -15,6 +16,7 @@ import { RadarSpinnerModule } from 'angular-epic-spinners';
   imports: [
     CommonModule,
     FlexLayoutModule,
+    LayoutModule,
     MatButtonModule,
     MatCardModule,
     MatDividerModule,
@@ -26,6 +28,7 @@ import { RadarSpinnerModule } from 'angular-epic-spinners';
   exports: [
     CommonModule,
     FlexLayoutModule,
+    LayoutModule,
     MatButtonModule,
     MatCardModule,
     MatDividerModule,
