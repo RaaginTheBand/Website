@@ -98,14 +98,14 @@ body {
 }
 
 .standard-text {
-  font-size: 1.2vw;
+  font-size: 1.5vw;
   line-height: 1.2;
   white-space: pre-wrap;
 }
 
 @media screen and (max-width: $desktop-6) {
   .overlay-headers {
-    font-size: 1.6vw;
+    font-size: 1.7vw;
   }
 }
 
@@ -116,6 +116,6 @@ body {
   }
 
   .overlay-headers {
-    font-size: 2.6vw;
+    font-size: 2.5vh;
   }
 }
