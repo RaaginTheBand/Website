@@ -1,24 +1,18 @@
 <div class="overlay">
-  <mat-grid-list cols="6" rowHeight="3:1">
-    <ng-template [ngIf]="!isLoaded" [ngIfElse]="loaded">
-      <mat-grid-tile colspan="6" rowspan="7">
-        <app-radar-spinner [animationDuration]="1500" [size]="80" [color]="color" class="spinner"></app-radar-spinner>
-      </mat-grid-tile>
-    </ng-template>
-    <ng-template #loaded>
-      <mat-grid-tile colspan="6" rowspan="2">
-        <h2 class="overlay-headers">
-          {{ content?.title }}
-        </h2>
-      </mat-grid-tile>
-      <mat-grid-tile colspan="3" rowspan="7">
-        <div class="image-wrapper">
-          <img [src]="content?.imageUrl" alt="placeholder image" class="image">
-        </div>
-      </mat-grid-tile>
-      <mat-grid-tile colspan="3" rowspan="7">
-        <div [innerHtml]="content?.text" class="standard-text" id="home-text"></div>
-      </mat-grid-tile>
-    </ng-template>
-  </mat-grid-list>
+  <ng-template [ngIf]="!isLoaded" [ngIfElse]="loaded">
+    <div fxLayout="column wrap" fxLayoutAlign="space-around center" class="spinner-wrapper">
+      <app-radar-spinner [animationDuration]="1500" [size]="80" [color]="color" class="spinner"></app-radar-spinner>
+    </div>
+  </ng-template>
+  <ng-template #loaded>
+    <div fxLayout="column wrap" fxLayoutAlign="space-around center">
+      <h2 class="overlay-headers" id="home-header">
+        {{ content?.title }}
+      </h2>
+      <div [innerHtml]="content?.text" class="standard-text" id="home-text"></div>
+      <div class="image-wrapper" id="home-pic">
+        <img [src]="content?.imageUrl" alt="placeholder image" class="image">
+      </div>
+    </div>
+  </ng-template>
 </div>
