@@ -1,9 +1,19 @@
-.event-info {
-  width: 100%;
-}
+.event-wrapper {
+  margin-bottom: 2vh;
 
-#upcoming-text {
-  margin-right: 2vw;
+  .event-image-wrapper {
+    margin-left: 2vw;
+  }
+
+  .event-text-wrapper {
+    margin-right: 2vw;
+    max-width: 50%;
+
+    .event-info {
+      margin: 0;
+      width: 100%;
+    }
+  }
 }
 
 #no-upcoming-text1 {

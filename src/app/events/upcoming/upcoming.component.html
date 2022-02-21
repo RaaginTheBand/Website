@@ -1,59 +1,41 @@
 <div class="outer-margins overlay">
-  <mat-grid-list cols="6" rowHeight="3:1">
-    <!-- Loading spinner -->
-    <ng-template [ngIf]="!isLoaded" [ngIfElse]="loaded">
-      <mat-grid-tile colspan="6" rowspan="9">
-        <app-radar-spinner [animationDuration]="1500" [size]="80" [color]="color" class="spinner"></app-radar-spinner>
-      </mat-grid-tile>
-    </ng-template>
-    <!-- Loaded content -->
-    <ng-template #loaded>
-      <mat-grid-tile colspan="6" rowspan="2">
-        <h2 class="overlay-headers">{{ content.title }}</h2>
-      </mat-grid-tile>
-      <!-- Upcoming event -->
+  <ng-template [ngIf]="!isLoaded" [ngIfElse]="loaded" class="spinner-wrapper">
+    <app-radar-spinner [animationDuration]="1500" [size]="80" [color]="color" class="spinner"></app-radar-spinner>
+  </ng-template>
+  <ng-template #loaded>
+    <div fxLayout="column wrap" fxLayoutAlign="space-around center">
+      <h2 class="overlay-headers">
+        {{ content.title }}
+      </h2>
       <ng-template [ngIf]="isEvent" [ngIfElse]="noEvent">
-        <ng-container *ngFor="let event of content.events">
-          <mat-grid-tile colspan="4" rowspan="9">
-            <div class="image-wrapper">
-              <img class="image" [src]="event?.imageUrl" alt="placeholder image">
+        <div class="event-wrapper" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="2vw" *ngFor="let event of content.events">
+          <div class="event-image-wrapper image-wrapper">
+            <img class="image" [src]="event?.imageUrl" alt="placeholder image">
+          </div>
+          <div class="event-text-wrapper" fxLayout="column wrap" fxLayoutAlign="space-around start" fxLayoutGap="2vh">
+            <div class="header-text event-info">
+              {{ event?.name }}
             </div>
-          </mat-grid-tile>
-          <mat-grid-tile colspan="2" rowspan="1">
-            <h3 class="standard-text event-info">{{ event?.name }}</h3>
-          </mat-grid-tile>
-          <mat-grid-tile colspan="2" rowspan="1" *ngIf="event?.ticketUrl">
-            <p class="event-info standard-text">
-              Tickets: <a [href]="event?.ticketUrl" target="_blank" rel="noopener noreferrer" class="links">{{ event?.ticketUrl }}</a>
+            <p class="event-info standard-text" *ngIf="event?.ticketUrl">Tickets:
+              <a [href]="event?.ticketUrl" target="_blank" rel="noopener noreferrer" class="links">{{ event?.ticketUrl }}</a>
             </p>
-          </mat-grid-tile>
-          <mat-grid-tile colspan="2" rowspan="1">
-            <p class="standard-text event-info">{{ event?.dateTime!.toDate() | date:'MMMM d, y, h:mm a' }}</p>
-          </mat-grid-tile>
-          <mat-grid-tile colspan="2" rowspan="2">
+            <p class="event-info standard-text">
+              {{ event?.dateTime!.toDate() | date:'MMMM d, y, h:mm a' }}
+            </p>
             <a [href]="event?.location!.mapUrl" target="_blank" rel="noopener noreferrer" class="event-info links standard-text">
-              <p class="standard-text">{{ event?.location!.name }}</p>
-              <p class="standard-text">{{ event?.location!.line1 }}</p>
-              <p class="standard-text">{{ event?.location!.line2 }}</p>
+              <p class="event-info standard-text">{{ event?.location!.name }}</p>
+              <p class="event-info standard-text">{{ event?.location!.line1 }}</p>
+              <p class="event-info standard-text">{{ event?.location!.line2 }}</p>
             </a>
-          </mat-grid-tile>
-          <mat-grid-tile colspan="2" rowspan="4">
-            <div [innerHtml]="event?.description" class="standard-text event-info" id="upcoming-text"></div>
-          </mat-grid-tile>
-        </ng-container>
+            <div [innerHtml]="event?.description" class="event-info standard-text"></div>
+          </div>
+        </div>
       </ng-template>
-      <!-- No upcoming event -->
       <ng-template #noEvent>
-        <mat-grid-tile colspan="6" rowspan="1">
-          <p id="no-upcoming-text1">No upcoming events</p>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="6" rowspan="1">
-          <p id="no-upcoming-text2">Stay tuned!</p>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="6" rowspan="1">
-          <div id="no-upcoming-spacer"></div>
-        </mat-grid-tile>
+        <p id="no-upcoming-text1">No upcoming events</p>
+        <p id="no-upcoming-text2">Stay tuned!</p>
+        <div id="no-upcoming-spacer"></div>
       </ng-template>
-    </ng-template>
-  </mat-grid-list>
+    </div>
+  </ng-template>
 </div>
