@@ -1,7 +1,30 @@
-.event-info {
-  width: 100%;
+.event-group {
+  max-height: 50vh;
+  margin: 0 2vw;
+
+  .event-pic-wrapper {
+    max-width: 30%;
+
+    .event-pic {
+      margin: 0 auto;
+    }
+  }
+
+  .event-text-wrapper {
+    max-width: 70%;
+
+    .event-name {
+      margin: 0 2vw;
+      width: 90%;
+    }
+
+    .event-info {
+      margin-right: 2vw;
+      text-align: start;
+    }
+  }
 }
 
-.past-text {
-  margin-right: 2vw;
+#last-event {
+  margin-bottom: 2vh;
 }
