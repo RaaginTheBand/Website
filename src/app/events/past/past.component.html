@@ -1,33 +1,27 @@
 <div class="outer-margins overlay">
-  <mat-grid-list cols="6" rowHeight="3:1">
-    <ng-template [ngIf]="!isLoaded" [ngIfElse]="loaded">
-      <mat-grid-tile colspan="6" rowspan="9">
-        <app-radar-spinner [animationDuration]="1500" [size]="80" [color]="color" class="spinner"></app-radar-spinner>
-      </mat-grid-tile>
-    </ng-template>
-    <ng-template #loaded>
-      <mat-grid-tile colspan="6" rowspan="2">
-        <h2 class="overlay-headers">{{ content.title }}</h2>
-      </mat-grid-tile>
-      <ng-container *ngFor="let event of content.events; last as isLast">
-        <mat-grid-tile colspan="3" rowspan="5">
-          <div class="image-wrapper">
-            <img [src]="event?.imageUrl" alt="placeholder image" class="image">
+  <ng-template [ngIf]="!isLoaded" [ngIfElse]="loaded" class="spinner-wrapper">
+    <app-radar-spinner [animationDuration]="1500" [size]="80" [color]="color" class="spinner"></app-radar-spinner>
+  </ng-template>
+  <ng-template #loaded>
+    <div fxLayout="column wrap" fxLayoutAlign="space-around center" fxLayoutGap="2vh">
+      <h2 class="overlay-headers">
+        {{ content?.title }}
+      </h2>
+      <div class="event-group" [id]="(isLast) ? 'last-event' : ''" fxLayout="column wrap" fxLayoutAlign="space-around center" fxLayoutGap="2vh" *ngFor="let event of content.events; last as isLast">
+        <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="2vw">
+          <div class="event-pic-wrapper image-wrapper">
+            <img [src]="event?.imageUrl" alt="placeholder image" class="event-pic image">
           </div>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="3" rowspan="1">
-          <h3 class="event-info standard-text">{{ event?.name }}</h3>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="3" rowspan="1">
-          <p class="event-info standard-text">{{ event?.dateTime!.toDate() | date:'MMMM d, y' }}</p>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="3" rowspan="3">
-          <div [innerHtml]="event?.description" class="event-info past-text standard-text"></div>
-        </mat-grid-tile>
-        <mat-grid-tile colspan="6" rowspan="1" *ngIf="!isLast">
-          <hr class="dividers">
-        </mat-grid-tile>
-      </ng-container>
-    </ng-template>
-  </mat-grid-list>
+          <div class="event-text-wrapper" fxLayout="column wrap" fxLayoutAlign="space-between start" fxLayoutGap="2vh">
+            <div class="event-name header-text">
+              {{ event?.name }}
+            </div>
+            <p class="event-info standard-text">{{ event?.dateTime!.toDate() | date:'MMMM d, y' }}</p>
+            <div [innerHtml]="event?.description" class="event-info past-text standard-text"></div>
+          </div>
+        </div>
+        <hr class="dividers" *ngIf="!isLast">
+      </div>
+    </div>
+  </ng-template>
 </div>
