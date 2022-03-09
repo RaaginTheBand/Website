@@ -66,19 +66,27 @@
   }
 }
 
-@media (orientation: portrait) {
-  #background-area {
-    background-color: black !important;
-    background-image: url('../assets/images/Background_mobile.jpg') !important;
-    background-position: center center !important;
-    filter: brightness(0.9) !important;
+@media screen and (orientation: portrait) {
+  #content-container {
+    height: calc(100vh - var(--header-height-mobile)) !important;
 
-    &::before {
-      backdrop-filter: blur(9px) !important;
+    #background-area {
+      background-color: black !important;
+      background-image: url('../assets/images/Background_mobile.jpg') !important;
+      background-position: center center !important;
+      filter: brightness(0.9) !important;
+
+      &::before {
+        backdrop-filter: blur(9px) !important;
+      }
+
+      .dark-theme & {
+        filter: brightness(0.5) !important;
+      }
     }
 
-    .dark-theme & {
-      filter: brightness(0.5) !important;
+    #content-area {
+      top: var(--header-height-mobile) !important;
     }
   }
 }
