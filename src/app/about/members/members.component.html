@@ -7,7 +7,7 @@
       <h2 class="overlay-headers">
         {{ content?.title }}
       </h2>
-      <div class="member-group" [id]="(isLast) ? 'last-group' : ''" fxLayout="column wrap" fxLayoutAlign="space-around center" fxLayoutGap="2vh" *ngFor="let member of content?.lineup; last as isLast; even as isEven; odd as isOdd">
+      <div class="member-group" [id]="(isLast) ? 'last-group' : ''" fxLayout="column" fxLayoutAlign="space-around center" fxLayoutGap="2vh" *ngFor="let member of content?.lineup; last as isLast; even as isEven; odd as isOdd">
         <div [fxLayout]="(isEven) ? 'row' : 'row-reverse'" fxLayoutAlign="space-around center" fxLayoutGap="2vw">
           <div class="image-wrapper member-pic-wrapper">
             <img class="image member-pic" [src]="member?.imageUrl" [alt]="member.name">
