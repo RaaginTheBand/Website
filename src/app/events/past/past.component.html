@@ -7,7 +7,7 @@
       <h2 class="overlay-headers">
         {{ content?.title }}
       </h2>
-      <div class="event-group" [id]="(isLast) ? 'last-event' : ''" fxLayout="column wrap" fxLayoutAlign="space-around center" fxLayoutGap="2vh" *ngFor="let event of content.events; last as isLast">
+      <div class="event-group" [id]="(isLast) ? 'last-event' : ''" fxLayout="column" fxLayoutAlign="space-around center" fxLayoutGap="2vh" *ngFor="let event of content.events; last as isLast">
         <div fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="2vw">
           <div class="event-pic-wrapper image-wrapper">
             <img [src]="event?.imageUrl" alt="placeholder image" class="event-pic image">
