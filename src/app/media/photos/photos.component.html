@@ -1,5 +1,5 @@
 <div class="outer-margins overlay">
-  <mat-grid-list cols="6" rowHeight="3:1">
+  <!-- <mat-grid-list cols="6" rowHeight="3:1">
     <ng-template [ngIf]="!isLoaded" [ngIfElse]="loaded">
       <mat-grid-tile colspan="6" rowspan="9">
         <app-radar-spinner [animationDuration]="1500" [size]="80" [color]="color" class="spinner"></app-radar-spinner>
@@ -22,5 +22,11 @@
         </mat-grid-tile>
       </ng-container>
     </ng-template>
-  </mat-grid-list>
+  </mat-grid-list> -->
+  <div class="temp" fxLayout="column" fxLayoutAlign="space-around center">
+    <h2 class="overlay-headers">
+      {{ content?.title }}
+    </h2>
+    <p class="temp-text">Coming soon!</p>
+  </div>
 </div>

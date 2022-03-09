@@ -5,7 +5,7 @@
   <ng-template #loaded>
     <div fxLayout="column wrap" fxLayoutAlign="space-around center">
       <h2 class="overlay-headers">
-        {{ content.title }}
+        {{ content?.title }}
       </h2>
       <ng-template [ngIf]="isEvent" [ngIfElse]="noEvent">
         <div class="event-wrapper" fxLayout="row" fxLayoutAlign="space-around center" fxLayoutGap="2vw" *ngFor="let event of content.events">
