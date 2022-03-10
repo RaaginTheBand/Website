@@ -1,7 +1,17 @@
 @import '../../styles/media-breakpoints.scss';
 
-.form-input {
-  width: 25%;
+form {
+  width: 50vw;
+
+  mat-form-field {
+    font-size: 1.2vw;
+    width: 25vw;
+  }
+
+  button {
+    font-size: 1.2vw;
+    padding: 0.6vh 0.5vw;
+  }
 }
 
 .social-icons {
@@ -25,18 +35,33 @@
 }
 
 .social-text {
-  font-size: 1.3vw;
+  font-size: 1.5vw;
   font-weight: bold;
   padding-left: 4vw;
+  text-decoration: none;
   width: 100%;
-
-  a {
-    text-decoration: none;
-  }
 }
 
-#spacer {
-  height: 2vh;
+#bottom-social {
+  margin-bottom: 2vh;
+}
+
+@media screen and (orientation: portrait) {
+  form {
+    mat-form-field {
+      font-size: 1.3vh !important;
+      width: 40vw !important;
+    }
+
+    button {
+      font-size: 1.3vh !important;
+      padding: 0.4vh 0.3vw !important;
+    }
+  }
+
+  .social-text {
+    font-size: 1.6vh !important;
+  }
 }
 
 @media screen and (max-width: $desktop-6) {
