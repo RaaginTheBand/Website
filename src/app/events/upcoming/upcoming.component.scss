@@ -3,6 +3,10 @@
 
   .event-image-wrapper {
     margin-left: 2vw;
+
+    img {
+      max-height: 80vh;
+    }
   }
 
   .event-text-wrapper {
