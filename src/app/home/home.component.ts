@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { StorageMap } from '@ngx-pwa/local-storage';
 import { EMPTY, ReplaySubject } from 'rxjs';
 import { concatMap, takeUntil } from 'rxjs/operators';
@@ -21,9 +22,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   private unsubscribe: ReplaySubject<boolean> = new ReplaySubject(1);
 
   constructor(private firestoreService: FirestoreService,
-              private storage: StorageMap) { }
+              private storage: StorageMap,
+              private titleService: Title) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle('Raagin - Tucson\'s Indian Cover Band');
     this.storage.watch(storageKeys.SPINNER_COLOR, { type: 'string' }).subscribe(val => {
       if (val) {
         this.color = val;
