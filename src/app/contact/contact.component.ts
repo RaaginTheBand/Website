@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { FaConfig } from '@fortawesome/angular-fontawesome';
 import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { StorageMap } from '@ngx-pwa/local-storage';
@@ -33,7 +34,8 @@ export class ContactComponent implements OnInit, OnDestroy {
               private faConfig: FaConfig,
               private firestoreService: FirestoreService,
               private form: FormBuilder,
-              private storage: StorageMap) {
+              private storage: StorageMap,
+              private titleService: Title) {
     this.faConfig.defaultPrefix = 'fab';
     this.formData = this.form.group({
       email: ['', [Validators.required, Validators.email]],
@@ -43,6 +45,7 @@ export class ContactComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.titleService.setTitle('Contact | Raagin - Tucson\'s Indian Cover Band');
     this.storage.watch(storageKeys.SPINNER_COLOR, { type: 'string' }).subscribe(val => {
       if (val) {
         this.color = val;
