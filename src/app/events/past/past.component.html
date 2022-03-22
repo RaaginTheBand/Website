@@ -1,6 +1,8 @@
 <div class="outer-margins overlay">
-  <ng-template [ngIf]="!isLoaded" [ngIfElse]="loaded" class="spinner-wrapper">
-    <app-radar-spinner [animationDuration]="1500" [size]="80" [color]="color" class="spinner"></app-radar-spinner>
+  <ng-template [ngIf]="!isLoaded" [ngIfElse]="loaded">
+    <div fxLayout="column wrap" fxLayoutAlign="space-around center" class="spinner-wrapper">
+      <app-radar-spinner [animationDuration]="1500" [size]="80" [color]="color" class="spinner"></app-radar-spinner>
+    </div>
   </ng-template>
   <ng-template #loaded>
     <div fxLayout="column wrap" fxLayoutAlign="space-around center" fxLayoutGap="2vh">
