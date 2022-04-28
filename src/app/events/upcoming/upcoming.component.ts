@@ -17,7 +17,9 @@ export class UpcomingComponent implements OnChanges {
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.isEvent = Boolean(changes['content'] || this.content.title);
+    if (changes['content']['currentValue'] && this.content) {
+      this.isEvent = Boolean(changes['content']['currentValue']['events'].length || this.content.events.length);
+    }
   }
 
 }
